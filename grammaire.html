@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammaire du Guboï — La Voix du Guboï</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Libre+Baskerville:ital@0;1&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1a1208;
+            --parchment: #f5f0e8;
+            --warm: #e8dfc8;
+            --accent: #7a4a1e;
+            --accent-light: #b07040;
+            --muted: #8a7a68;
+            --rule: #c8b898;
+            --serif: 'EB Garamond', Georgia, serif;
+            --serif2: 'Libre Baskerville', serif;
+            --mono: 'Courier Prime', monospace;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--parchment);
+            color: var(--ink);
+            font-family: var(--serif);
+            font-size: 18px;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(180,160,120,0.07) 28px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ─── MASTHEAD ─── */
+        .masthead {
+            border-bottom: 3px double var(--rule);
+            padding: 2rem 0 1.2rem;
+            text-align: center;
+            position: relative;
+            background: var(--parchment);
+        }
+
+        .masthead-meta {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            color: var(--muted);
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+        }
+
+        .masthead h1 {
+            font-family: var(--serif);
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            line-height: 1.05;
+            color: var(--ink);
+        }
+
+        .masthead h1 span {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .masthead-sub {
+            font-family: var(--serif2);
+            font-size: 0.88rem;
+            font-style: italic;
+            color: var(--muted);
+            margin-top: 0.4rem;
+            letter-spacing: 0.06em;
+        }
+
+        .masthead-phrase {
+            font-family: var(--serif);
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--accent);
+            margin-top: 0.6rem;
+            letter-spacing: 0.04em;
+        }
+
+        .ornament {
+            color: var(--accent);
+            font-size: 1.4rem;
+            display: block;
+            margin: 0.5rem 0;
+            letter-spacing: 0.4em;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            border-bottom: 1px solid var(--rule);
+            background: var(--warm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 0.75rem 1rem;
+            font-family: var(--serif2);
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--ink);
+            transition: color 0.2s;
+            border-right: 1px solid var(--rule);
+        }
+
+        .nav-links li:first-child a {
+            border-left: 1px solid var(--rule);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+
+        /* ─── LAYOUT ─── */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ─── CONTENT ─── */
+        .page-title {
+            font-family: var(--serif);
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 0.5rem;
+            color: var(--ink);
+            text-align: center;
+            padding-top: 2.5rem;
+        }
+
+        .section-label {
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .intro-text {
+            max-width: 720px;
+            margin: 1.5rem auto 2.5rem;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--ink);
+            text-align: justify;
+        }
+
+        h2 {
+            font-family: var(--serif);
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-family: var(--serif);
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 1.3;
+            margin-bottom: 0.3rem;
+            color: var(--accent);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .grammar-section {
+            border-top: 1px solid var(--rule);
+            padding: 2rem 0;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .grammar-section:first-of-type {
+            border-top: none;
+        }
+
+        .grammar-number {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+        }
+
+        .structure-box {
+            background: var(--warm);
+            border: 1px solid var(--rule);
+            border-left: 4px solid var(--accent);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            font-size: 1rem;
+        }
+
+        .structure-box strong {
+            font-family: var(--mono);
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .example-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .example-list li {
+            padding: 0.4rem 0;
+            border-bottom: 1px solid var(--rule);
+            font-size: 0.95rem;
+        }
+
+        .example-list li:last-child {
+            border-bottom: none;
+        }
+
+        .example-list .guboi {
+            font-style: italic;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .grammar-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+            margin-top: 0.8rem;
+        }
+
+        .grammar-table td {
+            padding: 0.45rem 0.7rem;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .grammar-table td:first-child {
+            font-style: italic;
+            color: var(--accent);
+            font-weight: 500;
+            white-space: nowrap;
+            width: 120px;
+        }
+
+        .grammar-table thead td {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-style: normal !important;
+            font-weight: 400 !important;
+            border-bottom: 2px solid var(--rule);
+        }
+
+        .grammar-note {
+            background: var(--warm);
+            border: 1px solid var(--rule);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            font-size: 0.92rem;
+            font-style: italic;
+            color: var(--ink);
+        }
+
+        .conclusion-section {
+            border-top: 1px solid var(--rule);
+            padding: 2rem 0 3rem;
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .conclusion-section p {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .conclusion-phrase {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-top: 1.5rem;
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            border-top: 3px double var(--rule);
+            margin-top: 3rem;
+            padding: 2rem 0;
+            text-align: center;
+            background: var(--warm);
+        }
+
+        footer p {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            color: var(--muted);
+            margin-bottom: 0.4rem;
+        }
+
+        .footer-phrase {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--accent);
+            margin: 0.8rem 0;
+        }
+
+        /* ─── ANIMATIONS ─── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .masthead { animation: fadeUp 0.6s ease both; }
+        .grammar-content { animation: fadeUp 0.6s ease 0.15s both; }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 680px) {
+            .nav-links a {
+                padding: 0.75rem 0.6rem;
+                font-size: 0.72rem;
+            }
+
+            .grammar-section {
+                padding: 1.5rem 0;
+            }
+
+            .verb-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        a { color: inherit; }
+        a:hover { color: var(--accent); }
+
+        .verb-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="masthead">
+        <div class="masthead-meta">Langue du peuple Iboï · Terre de Kaboï · Guinée-Bissau · Sénégal</div>
+        <h1>La Voix du <span>Guboï</span></h1>
+        <span class="ornament">— &#10087; —</span>
+        <p class="masthead-phrase">Ma ngo Uboï. Nge ngo Iboï. Nge njupa Guboï.</p>
+        <p class="masthead-phrase"><em>Ayeg'ndina ngo kandjeb.</em> — S'entendre, c'est la vie.</p>
+    </div>
+
+    <nav>
+        <div class="nav-inner">
+            <ul class="nav-links">
+                <li><a href="index.html#histoire">Histoire</a></li>
+                <li><a href="index.html#conversations">Conversations</a></li>
+                <li><a href="index.html#sonores">Sons</a></li>
+                <li><a href="index.html#dictionnaire">Dictionnaire</a></li>
+                <li><a href="grammaire.html" class="active">Grammaire</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container grammar-content">
+
+        <div class="section-label" style="padding-top:2.5rem">Grammaire · Langue Guboï</div>
+        <h1 class="page-title" style="padding-top:0.5rem">Premiers éléments de grammaire du Guboï</h1>
+
+        <div class="intro-text">
+            <p>La langue Guboï est la langue du peuple Iboï, originaire de la terre de Kaboï. Traditionnellement orale, elle commence aujourd'hui à être documentée afin de préserver sa richesse linguistique et culturelle. Cette page présente quelques éléments fondamentaux de la structure du Guboï.</p>
+        </div>
+
+        <!-- 1. L'INFINITIF -->
+        <div class="grammar-section">
+            <div class="grammar-number">1.</div>
+            <h2>L'infinitif</h2>
+            <p>En Guboï, l'infinitif se forme avec la particule <strong>Be</strong> placée devant la base verbale.</p>
+
+            <div class="structure-box">
+                <strong>Structure :</strong> Be + radical verbal
+            </div>
+
+            <ul class="example-list">
+                <li><span class="guboi">Be zup</span> : parler</li>
+                <li><span class="guboi">Be gnam</span> : manger (un repas)</li>
+                <li><span class="guboi">Be hob</span> : croquer, manger un fruit</li>
+                <li><span class="guboi">Be yaab</span> : boire</li>
+                <li><span class="guboi">Be hem</span> : dormir</li>
+                <li><span class="guboi">Be fa</span> : partir</li>
+            </ul>
+        </div>
+
+        <!-- 2. LES PRONOMS PERSONNELS SUJETS -->
+        <div class="grammar-section">
+            <div class="grammar-number">2.</div>
+            <h2>Les pronoms personnels sujets</h2>
+
+            <table class="grammar-table">
+                <tr><td>Ma</td><td>je</td></tr>
+                <tr><td>A</td><td>tu</td></tr>
+                <tr><td>&#194;</td><td>il / elle</td></tr>
+                <tr><td>Nge</td><td>nous</td></tr>
+                <tr><td>Ka</td><td>vous</td></tr>
+                <tr><td>Na</td><td>ils / elles</td></tr>
+            </table>
+        </div>
+
+        <!-- 3. L'ASPECT HABITUEL -->
+        <div class="grammar-section">
+            <div class="grammar-number">3.</div>
+            <h2>L'aspect habituel</h2>
+            <p>Le présent peut exprimer une habitude, une capacité ou une vérité générale.</p>
+
+            <div class="structure-box">
+                <strong>Exemple :</strong><br>
+                <span style="font-style:italic;color:var(--accent);font-size:1.1rem;font-weight:700">Me ma zupa Guboï</span><br>
+                Je parle Guboï / Je suis locuteur du Guboï.
+            </div>
+        </div>
+
+        <!-- 4. L'ASPECT PROGRESSIF -->
+        <div class="grammar-section">
+            <div class="grammar-number">4.</div>
+            <h2>L'aspect progressif</h2>
+            <p>Le progressif exprime une action en cours.</p>
+
+            <div class="structure-box">
+                <strong>Structure :</strong> Sujet + ngo + verbe progressif
+            </div>
+
+            <div class="structure-box">
+                <strong>Exemple :</strong><br>
+                <span style="font-style:italic;color:var(--accent);font-size:1.1rem;font-weight:700">Ma ngo agnamta</span><br>
+                Je suis en train de manger.
+            </div>
+
+            <div class="grammar-note">
+                À la troisième personne, le <em>n</em> peut disparaître : <strong style="color:var(--accent)">&#194; go agnamta</strong> — Il/elle est en train de manger.
+            </div>
+        </div>
+
+        <!-- 5. L'ASPECT PERFECTIF -->
+        <div class="grammar-section">
+            <div class="grammar-number">5.</div>
+            <h2>L'aspect perfectif</h2>
+            <p>Le perfectif exprime une action accomplie.</p>
+
+            <ul class="example-list">
+                <li><span class="guboi">Ma gnami</span> — J'ai mangé (un repas).</li>
+                <li><span class="guboi">Ma kobi</span> — J'ai croqué/mangé quelque chose.</li>
+            </ul>
+        </div>
+
+        <!-- 6. UN VERBE IRRÉGULIER : BE HOB -->
+        <div class="grammar-section">
+            <div class="grammar-number">6.</div>
+            <h2>Un verbe irrégulier : <em>Be hob</em></h2>
+            <p><strong>Be hob</strong> signifie <em>croquer</em> ou <em>manger un fruit</em>.</p>
+
+            <div class="verb-grid">
+                <div>
+                    <h3>Présent</h3>
+                    <table class="grammar-table">
+                        <tr><td>Ma</td><td>hob</td></tr>
+                        <tr><td>A</td><td>hob</td></tr>
+                        <tr><td>(Wok)</td><td>kob</td></tr>
+                        <tr><td>Nge</td><td>kob</td></tr>
+                        <tr><td>Ka</td><td>kob</td></tr>
+                        <tr><td>Na</td><td>kob</td></tr>
+                    </table>
+                </div>
+                <div>
+                    <h3>Perfectif</h3>
+                    <table class="grammar-table">
+                        <tr><td>Ma</td><td>kobi</td></tr>
+                        <tr><td>A</td><td>kobi</td></tr>
+                        <tr><td>&#194;</td><td>hobi</td></tr>
+                        <tr><td>Nge</td><td>kobi</td></tr>
+                        <tr><td>Ka</td><td>kobi</td></tr>
+                        <tr><td>Na</td><td>kobi</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONCLUSION -->
+        <div class="conclusion-section">
+            <span class="ornament">— &#10087; —</span>
+            <p>Ces exemples montrent que le Guboï possède une structure verbale riche, avec des alternances de radical et une distinction claire entre différents aspects de l'action. Cette documentation constitue une première contribution à la description et à la préservation de la langue Guboï.</p>
+            <div class="conclusion-phrase">Guboï wani.</div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div style="max-width:900px;margin:0 auto;padding:0 1.5rem;text-align:center">
+            <span class="ornament">— &#10087; —</span>
+            <div class="footer-phrase">Ayeg'ndina ngo kandjeb.</div>
+            <p>La Voix du Guboï — Langue du peuple Iboï, terre de Kaboï</p>
+            <p>Guinée-Bissau · Sénégal · Diaspora · Depuis 2026</p>
+            <p style="margin-top:0.8rem">Ce blog est une initiative de préservation linguistique. Contributions bienvenues.</p>
+            <p style="margin-top:0.4rem">Ma ngo Uboï. Nge ngo Iboï. Nge njupa Guboï.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

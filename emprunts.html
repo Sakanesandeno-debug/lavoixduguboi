@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quand le Guboï emprunte — La Voix du Guboï</title>
+<meta name="description" content="Une conversation vocale authentique révèle les emprunts au wolof, français et portugais dans le Guboï — et les mots originaux qui existent pour les remplacer.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --sand: #F5F0E8;
+    --sand-dark: #E8E0CC;
+    --brown: #5C4A2A;
+    --brown-light: #8B6F47;
+    --text: #2C2218;
+    --text-muted: #7A6A52;
+    --guboï: #2D5A3D;
+    --guboï-light: #EEF5F0;
+    --guboï-border: #7AAD8A;
+    --wolof-bg: #EDE8F5;
+    --wolof-text: #4A3570;
+    --french-bg: #E5EEF7;
+    --french-text: #1A3A5C;
+    --port-bg: #F5EDE5;
+    --port-text: #6B3A1F;
+    --border: #D4C8B0;
+    --white: #FDFAF5;
+  }
+  body { font-family: Georgia, 'Times New Roman', serif; background: var(--sand); color: var(--text); line-height: 1.7; }
+
+  /* NAV */
+  nav { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { font-size: 15px; font-weight: 600; color: var(--brown); letter-spacing: 0.02em; text-decoration: none; }
+  .nav-links { display: flex; gap: 24px; }
+  .nav-links a { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; color: var(--text-muted); text-decoration: none; }
+  .nav-links a:hover { color: var(--brown); }
+  .lang-switch { display: flex; gap: 4px; }
+  .lang-btn { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; padding: 4px 10px; border: 1px solid var(--border); border-radius: 4px; cursor: pointer; background: transparent; color: var(--text-muted); transition: all .2s; }
+  .lang-btn.active { background: var(--brown); color: var(--white); border-color: var(--brown); }
+
+  /* HERO */
+  .hero { background: var(--white); border-bottom: 1px solid var(--border); padding: 3rem 2rem 2.5rem; text-align: center; }
+  .hero-tag { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 400; color: var(--text); line-height: 1.25; margin-bottom: 16px; }
+  .hero-sub { font-size: 16px; color: var(--text-muted); max-width: 520px; margin: 0 auto 24px; }
+  .hero-meta { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: var(--text-muted); }
+
+  /* LAYOUT */
+  .container { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+  /* INTRO */
+  .intro-block { border-left: 3px solid var(--brown); padding: 14px 18px; margin-bottom: 32px; background: var(--white); border-radius: 0 6px 6px 0; }
+  .intro-block p { font-size: 16px; line-height: 1.75; color: var(--text); }
+
+  /* AUDIO */
+  .audio-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 18px 22px; margin-bottom: 32px; }
+  .audio-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 8px; }
+  .audio-title { font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .audio-sub { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; color: var(--text-muted); margin-bottom: 14px; }
+  .audio-note { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: var(--text-muted); margin-top: 10px; font-style: italic; }
+
+  /* SECTION TITLE */
+  .section-title { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin: 0 0 14px; font-weight: 600; }
+
+  /* LOAN CARDS */
+  .loan-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 16px; overflow: hidden; }
+  .loan-header { display: flex; align-items: center; gap: 10px; padding: 14px 18px; cursor: pointer; transition: background .15s; flex-wrap: wrap; }
+  .loan-header:hover { background: var(--sand); }
+  .lang-badge { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; padding: 3px 10px; border-radius: 20px; font-weight: 600; flex-shrink: 0; }
+  .badge-wolof { background: var(--wolof-bg); color: var(--wolof-text); }
+  .badge-french { background: var(--french-bg); color: var(--french-text); }
+  .badge-port { background: var(--port-bg); color: var(--port-text); }
+  .loan-word { font-size: 16px; font-weight: 600; color: var(--text); flex: 1; min-width: 180px; }
+  .loan-meaning { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; color: var(--text-muted); }
+  .chevron { font-size: 11px; color: var(--text-muted); transition: transform .2s; margin-left: auto; }
+  .chevron.open { transform: rotate(180deg); }
+  .loan-body { padding: 16px 18px; border-top: 1px solid var(--border); display: none; background: var(--sand); }
+  .loan-body.open { display: block; }
+
+  /* COMPARISON */
+  .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+  @media (max-width: 480px) { .comparison-grid { grid-template-columns: 1fr; } }
+  .comp-cell { padding: 12px 14px; border-radius: 6px; border: 1px solid var(--border); background: var(--white); }
+  .comp-cell.emprunt { background: #FDF6F0; border-color: #D4A97A; }
+  .comp-cell.guboï-cell { background: var(--guboï-light); border-color: var(--guboï-border); }
+  .comp-lang { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+  .comp-lang.emprunt-lang { color: var(--brown-light); }
+  .comp-lang.guboï-lang { color: var(--guboï); }
+  .comp-word { font-size: 20px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+  .comp-def { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; color: var(--text-muted); }
+
+  /* TABLE */
+  .paradigm-table { width: 100%; border-collapse: collapse; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; margin: 10px 0; }
+  .paradigm-table th { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--border); color: var(--text-muted); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .paradigm-table td { padding: 8px 10px; border-bottom: 1px solid rgba(212,200,176,0.5); color: var(--text); }
+  .paradigm-table tr:last-child td { border-bottom: none; }
+  .gw { font-family: Georgia, serif; font-size: 15px; font-weight: 600; color: var(--guboï); }
+
+  /* SOLAR CYCLE */
+  .solar-cycle { margin: 14px 0 10px; }
+  .solar-track { display: flex; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+  .solar-slot { flex: 1; padding: 10px 5px; text-align: center; }
+  .solar-slot.s-deep { background: #0f1b2d; }
+  .solar-slot.s-dawn { background: #3d2a1a; }
+  .solar-slot.s-morning { background: #f5c842; }
+  .solar-slot.s-noon { background: #f7d94c; }
+  .solar-slot.s-evening { background: #e07830; }
+  .solar-slot.s-night { background: #1e2d45; }
+  .solar-name { font-family: Georgia, serif; font-size: 12px; font-weight: 600; display: block; margin-bottom: 2px; }
+  .solar-slot.s-morning .solar-name, .solar-slot.s-noon .solar-name { color: #3a2a00; }
+  .solar-slot.s-evening .solar-name { color: #2a1000; }
+  .solar-slot.s-deep .solar-name, .solar-slot.s-dawn .solar-name, .solar-slot.s-night .solar-name { color: #c8d8e8; }
+  .solar-hours { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; display: block; }
+  .solar-slot.s-morning .solar-hours, .solar-slot.s-noon .solar-hours { color: #5a4400; }
+  .solar-slot.s-evening .solar-hours { color: #3a1800; }
+  .solar-slot.s-deep .solar-hours, .solar-slot.s-dawn .solar-hours, .solar-slot.s-night .solar-hours { color: #8aaac8; }
+  .gmoud-bar { display: flex; align-items: center; gap: 10px; margin-top: 8px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; }
+  .gmoud-label { color: #6888a8; font-family: Georgia, serif; }
+  .tchèn-label { color: #a07818; font-family: Georgia, serif; }
+  .axis-bar { flex: 1; height: 3px; border-radius: 2px; background: linear-gradient(to right, #0f1b2d, #f5c842, #e07830, #0f1b2d); }
+
+  /* HIGHLIGHT */
+  .highlight-phrase { font-family: Georgia, serif; font-size: 20px; font-weight: 600; color: var(--guboï); text-align: center; padding: 14px; background: var(--guboï-light); border-radius: 6px; margin-bottom: 10px; border: 1px solid var(--guboï-border); }
+  .highlight-gloss { display: flex; justify-content: center; gap: 28px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: var(--text-muted); margin-bottom: 14px; flex-wrap: wrap; gap: 16px; }
+  .gloss-item { text-align: center; }
+  .gloss-word { font-family: Georgia, serif; font-size: 14px; color: var(--text); font-weight: 600; }
+
+  /* ANALYSIS */
+  .analysis-box { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; color: var(--text-muted); line-height: 1.65; padding: 12px 14px; background: var(--white); border-radius: 6px; border: 1px solid var(--border); margin-top: 10px; }
+  .analysis-box strong { color: var(--text); }
+
+  /* CONCLUSION */
+  .conclusion { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 20px 24px; margin-top: 32px; }
+  .conclusion-title { font-size: 15px; font-weight: 600; margin-bottom: 10px; color: var(--text); }
+  .conclusion-text { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; line-height: 1.7; color: var(--text-muted); }
+  .proverb { font-size: 17px; font-style: italic; color: var(--text); border-left: 2px solid var(--border); padding-left: 14px; margin: 18px 0 6px; }
+  .proverb-trans { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; color: var(--text-muted); padding-left: 16px; }
+
+  /* FOOTER */
+  footer { background: var(--white); border-top: 1px solid var(--border); padding: 2rem; text-align: center; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; color: var(--text-muted); }
+  footer a { color: var(--brown); text-decoration: none; }
+
+  .lang-section { display: none; }
+  .lang-section.active { display: block; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">La Voix du Guboï</a>
+  <div class="nav-links">
+    <a href="/histoire">Histoire</a>
+    <a href="/conversations">Conversations</a>
+    <a href="/dictionnaire">Dictionnaire</a>
+    <a href="/grammaire">Grammaire</a>
+  </div>
+  <div class="lang-switch">
+    <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('pt')">PT</button>
+  </div>
+</nav>
+
+<!-- FRANÇAIS -->
+<div class="lang-section active" id="sec-fr">
+  <div class="hero">
+    <div class="hero-tag">Conversations · Analyse · 2026</div>
+    <h1>Quand le Guboï emprunte</h1>
+    <p class="hero-sub">Une conversation vocale authentique révèle les traces du wolof, du français et du portugais dans la langue iboï — et les mots originaux qui leur répondent.</p>
+    <div class="hero-meta">Locutrice native uboï · Guinée-Bissau</div>
+  </div>
+  <div class="container">
+    <div class="intro-block">
+      <p>Dans cette conversation vocale authentique, une locutrice uboï parle naturellement. En l'écoutant attentivement, quelque chose de révélateur émerge : sa langue glisse — presque sans le vouloir — vers le wolof, le français, le portugais. Ce n'est pas un défaut. C'est le son d'une langue en danger.</p>
+    </div>
+
+    <div class="audio-card">
+      <div class="audio-label">Conversation authentique · WhatsApp · 2026</div>
+      <div class="audio-title">Une voix du matin</div>
+      <div class="audio-sub">Message vocal envoyé tôt le matin dans un groupe WhatsApp</div>
+      <!-- REMPLACER src par le chemin réel du fichier audio -->
+      <audio controls style="width:100%;margin-top:8px;" src="audio/voix-du-matin.mp3">
+        Votre navigateur ne supporte pas la lecture audio.
+      </audio>
+      <div class="audio-note">Locutrice native uboï · Région de Cacheu, Guinée-Bissau</div>
+    </div>
+
+    <p class="section-title">Les emprunts identifiés</p>
+
+    <div class="loan-card">
+      <div class="loan-header" onclick="toggle(this)">
+        <span class="lang-badge badge-wolof">Wolof</span>
+        <span class="loan-word">safna sap · torop torop</span>
+        <span class="loan-meaning">très, beaucoup</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="loan-body">
+        <div class="comparison-grid">
+          <div class="comp-cell emprunt">
+            <div class="comp-lang emprunt-lang">Emprunt wolof</div>
+            <div class="comp-word">torop torop</div>
+            <div class="comp-def">très / beaucoup (degré intensif)</div>
+          </div>
+          <div class="comp-cell guboï-cell">
+            <div class="comp-lang guboï-lang">En Guboï</div>
+            <div class="comp-word">a-falaki · fato</div>
+            <div class="comp-def">très / davantage (intensification propre)</div>
+          </div>
+        </div>
+        <table class="paradigm-table">
+          <tr><th>Guboï</th><th>Sens</th><th>Mécanisme</th></tr>
+          <tr><td><span class="gw">a-gnami</span></td><td>cela fait mal</td><td>base</td></tr>
+          <tr><td><span class="gw">a-gnam fato</span></td><td>cela fait beaucoup mal</td><td>base + fato</td></tr>
+          <tr><td><span class="gw">a-falak ba-gnama</span></td><td>cela fait très mal</td><td>falak + base</td></tr>
+          <tr><td><span class="gw">nopé fato</span></td><td>appuie plus fort</td><td>verbe + fato</td></tr>
+        </table>
+        <div class="analysis-box">Le Guboï possède <strong>deux stratégies distinctes</strong> : <em>fato</em> en post-position pour le degré quantitatif, <em>falak</em> en pré-position pour le superlatif. Une richesse que <em>torop torop</em> efface en un seul mot.</div>
+      </div>
+    </div>
+
+    <div class="loan-card">
+      <div class="loan-header" onclick="toggle(this)">
+        <span class="lang-badge badge-french">Français</span>
+        <span class="loan-word">heure · semaine · mois</span>
+        <span class="loan-meaning">temps, calendrier</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="loan-body">
+        <div class="comparison-grid">
+          <div class="comp-cell emprunt">
+            <div class="comp-lang emprunt-lang">Emprunt français</div>
+            <div class="comp-word">heure · semaine · mois</div>
+            <div class="comp-def">découpage abstrait et colonial du temps</div>
+          </div>
+          <div class="comp-cell guboï-cell">
+            <div class="comp-lang guboï-lang">En Guboï</div>
+            <div class="comp-word">bneg · benom · djafagn</div>
+            <div class="comp-def">soleil · jour de marché · lune</div>
+          </div>
+        </div>
+        <div class="solar-cycle">
+          <div class="solar-track">
+            <div class="solar-slot s-deep"><span class="solar-name">Skaye</span><span class="solar-hours">22h–3h</span></div>
+            <div class="solar-slot s-dawn"><span class="solar-name">Ta tchèn bneg</span><span class="solar-hours">4h–6h</span></div>
+            <div class="solar-slot s-morning"><span class="solar-name">Guluna</span><span class="solar-hours">matin</span></div>
+            <div class="solar-slot s-noon"><span class="solar-name">Apèn</span><span class="solar-hours">midi</span></div>
+            <div class="solar-slot s-evening"><span class="solar-name">Bganeg</span><span class="solar-hours">soir</span></div>
+            <div class="solar-slot s-night"><span class="solar-name">Guinden</span><span class="solar-hours">nuit</span></div>
+          </div>
+          <div class="gmoud-bar">
+            <span class="gmoud-label">gmoud (obscurité)</span>
+            <div class="axis-bar"></div>
+            <span class="tchèn-label">tchèn (clarté)</span>
+          </div>
+        </div>
+        <table class="paradigm-table">
+          <tr><th>Guboï</th><th>Sens littéral</th><th>Équivalent français</th></tr>
+          <tr><td><span class="gw">bneg</span></td><td>soleil / jour</td><td>racine temporelle</td></tr>
+          <tr><td><span class="gw">ta tchèn bneg</span></td><td>le jour qui s'éclaircit</td><td>l'aube (4h–6h)</td></tr>
+          <tr><td><span class="gw">aver sakaye</span></td><td>presque onze</td><td>presque onze heures</td></tr>
+          <tr><td><span class="gw">benom</span></td><td>jour de marché</td><td>semaine</td></tr>
+          <tr><td><span class="gw">djafagn</span></td><td>la lune</td><td>mois</td></tr>
+          <tr><td><span class="gw">din</span></td><td>cycle long</td><td>an</td></tr>
+        </table>
+        <div class="analysis-box">Le Guboï ne découpe pas le temps — il le <strong>ressent</strong>. L'axe fondamental est <em>gmoud</em> (obscurité) ↔ <em>tchèn</em> (clarté). <em>Ta tchèn bneg</em> — « le jour qui s'éclaircit » — nomme ce moment suspendu entre nuit profonde et aube que le français ne sait pas nommer.</div>
+      </div>
+    </div>
+
+    <div class="loan-card">
+      <div class="loan-header" onclick="toggle(this)">
+        <span class="lang-badge badge-port">Portugais</span>
+        <span class="loan-word">campagna</span>
+        <span class="loan-meaning">saison de récolte des noix de cajou</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="loan-body">
+        <div class="highlight-phrase">djafagn be-hateh cajou</div>
+        <div class="highlight-gloss">
+          <div class="gloss-item"><div class="gloss-word">djafagn</div><div>lune · période</div></div>
+          <div class="gloss-item"><div class="gloss-word">be-hateh</div><div>récolte</div></div>
+          <div class="gloss-item"><div class="gloss-word">cajou</div><div>noix de cajou</div></div>
+        </div>
+        <div class="analysis-box">Là où le portugais colonial dit <em>campagna</em>, le Guboï dit <strong>« la lune de la récolte des cajous »</strong>. Quand la campagne s'étend sur plusieurs mois : <em>din be-hateh cajou</em>. Le h de <em>be-hateh</em> est aspiré, comme un souffle sur la langue.</div>
+      </div>
+    </div>
+
+    <div class="conclusion">
+      <div class="conclusion-title">Ce que cette voix nous dit</div>
+      <div class="conclusion-text">Une langue qui emprunte n'est pas une langue qui capitule. Mais quand les emprunts couvrent le temps, l'intensité et le travail — les domaines les plus intimes de la vie — c'est le signal d'une fragilisation profonde. Le Guboï a ses mots. Ce projet est là pour les redonner.</div>
+      <div class="proverb">Ayeg'ndina ngo kandjeb.</div>
+      <div class="proverb-trans">S'entendre, c'est la vie. La survie passe par la communication.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ENGLISH -->
+<div class="lang-section" id="sec-en">
+  <div class="hero">
+    <div class="hero-tag">Conversations · Analysis · 2026</div>
+    <h1>When Guboï Borrows</h1>
+    <p class="hero-sub">An authentic voice recording reveals traces of Wolof, French and Portuguese in the Iboï language — and the original words that answer them.</p>
+    <div class="hero-meta">Native Uboï speaker · Guinea-Bissau</div>
+  </div>
+  <div class="container">
+    <div class="intro-block">
+      <p>In this authentic voice recording, an Uboï speaker talks naturally. Listen closely and something revealing emerges: her language drifts — almost unconsciously — toward Wolof, French, Portuguese. This is not a flaw. It is the sound of a language in danger.</p>
+    </div>
+    <div class="audio-card">
+      <div class="audio-label">Authentic conversation · WhatsApp · 2026</div>
+      <div class="audio-title">A morning voice</div>
+      <div class="audio-sub">Voice message sent early morning in a WhatsApp group</div>
+      <audio controls style="width:100%;margin-top:8px;" src="audio/voix-du-matin.mp3">Your browser does not support audio playback.</audio>
+      <div class="audio-note">Native Uboï speaker · Cacheu region, Guinea-Bissau</div>
+    </div>
+    <p class="section-title">Identified loanwords</p>
+    <div class="loan-card">
+      <div class="loan-header" onclick="toggle(this)">
+        <span class="lang-badge badge-wolof">Wolof</span>
+        <span class="loan-word">safna sap · torop torop</span>
+        <span class="loan-meaning">very, a lot</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="loan-body">
+        <div class="comparison-grid">
+          <div class="comp-cell emprunt"><div class="comp-lang emprunt-lang">Wolof loanword</div><div class="comp-word">torop torop</div><div class="comp-def">very / a lot (intensifier)</div></div>
+          <div class="comp-cell guboï-cell"><div class="comp-lang guboï-lang">In Guboï</div><div class="comp-word">a-falaki · fato</div><div class="comp-def">very / more (native intensification)</div></div>
+        </div>
+        <table class="paradigm-table">
+          <tr><th>Guboï</th><th>Meaning</th><th>Structure</th></tr>
+          <tr><td><span class="gw">a-gnami</span></td><td>it hurts</td><td>base</td></tr>
+          <tr><td><span class="gw">a-gnam fato</span></td><td>it hurts a lot</td><td>base + fato</td></tr>
+          <tr><td><span class="gw">a-falak ba-gnama</span></td><td>it hurts very much</td><td>falak + base</td></tr>
+          <tr><td><span class="gw">nopé fato</span></td><td>press harder</td><td>verb + fato</td></tr>
+        </table>
+        <div class="analysis-box">Guboï has <strong>two distinct strategies</strong>: <em>fato</em> post-position for quantitative degree, <em>falak</em> pre-position for superlative. A richness <em>torop torop</em> collapses into one word.</div>
+      </div>
+    </div>
+    <div class="loan-card">
+      <div class="loan-header" onclick="toggle(this)">
+        <span class="lang-badge badge-french">French</span>
+        <span class="loan-word">heure · semaine · mois</span>
+        <span class="loan-meaning">time, calendar</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="loan-body">
+        <div class="comparison-grid">
+          <div class="comp-cell emprunt"><div class="comp-lang emprunt-lang">French loanword</div><div class="comp-word">heure · semaine · mois</div><div class="comp-def">abstract colonial time units</div></div>
+          <div class="comp-cell guboï-cell"><div class="comp-lang guboï-lang">In Guboï</div><div class="comp-word">bneg · benom · djafagn</div><div class="comp-def">sun · market day · moon</div></div>
+        </div>
+        <div class="solar-cycle">
+          <div class="solar-track">
+            <div class="solar-slot s-deep"><span class="solar-name">Skaye</span><span class="solar-hours">10pm–3am</span></div>
+            <div class="solar-slot s-dawn"><span class="solar-name">Ta tchèn bneg</span><span class="solar-hours">4am–6am</span></div>
+            <div class="solar-slot s-morning"><span class="solar-name">Guluna</span><span class="solar-hours">morning</span></div>
+            <div class="solar-slot s-noon"><span class="solar-name">Apèn</span><span class="solar-hours">noon</span></div>
+            <div class="solar-slot s-evening"><span class="solar-name">Bganeg</span><span class="solar-hours">evening</span></div>
+            <div class="solar-slot s-night"><span class="solar-name">Guinden</span><span class="solar-hours">night</span></div>
+          </div>
+          <div class="gmoud-bar"><span class="gmoud-label">gmoud (darkness)</span><div class="axis-bar"></div><span class="tchèn-label">tchèn (light)</span></div>
+        </div>
+        <div class="analysis-box">Guboï does not divide time — it <strong>feels</strong> it. <em>Ta tchèn bneg</em> — "the day growing light" — names the suspended moment between deep night and dawn that French cannot name.</div>
+      </div>
+    </div>
+    <div class="loan-card">
+      <div class="loan-header" onclick="toggle(this)">
+        <span class="lang-badge badge-port">Portuguese</span>
+        <span class="loan-word">campagna</span>
+        <span class="loan-meaning">cashew harvest season</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="loan-body">
+        <div class="highlight-phrase">djafagn be-hateh cajou</div>
+        <div class="highlight-gloss">
+          <div class="gloss-item"><div class="gloss-word">djafagn</div><div>moon · period</div></div>
+          <div class="gloss-item"><div class="gloss-word">be-hateh</div><div>harvest</div></div>
+          <div class="gloss-item"><div class="gloss-word">cajou</div><div>cashew</div></div>
+        </div>
+        <div class="analysis-box">Where Portuguese says <em>campagna</em>, Guboï says <strong>"the moon of the cashew harvest"</strong>. For a longer season: <em>din be-hateh cajou</em>. The h in <em>be-hateh</em> is aspirated.</div>
+      </div>
+    </div>
+    <div class="conclusion">
+      <div class="conclusion-title">What this voice tells us</div>
+      <div class="conclusion-text">A language that borrows is not a language that surrenders. But when borrowings cover time, intensity, and labour, it signals deep fragility. Guboï has its own words. This project exists to give them back.</div>
+      <div class="proverb">Ayeg'ndina ngo kandjeb.</div>
+      <div class="proverb-trans">To understand each other is life. Survival depends on communication.</div>
+    </div>
+  </div>
+</div>
+
+<!-- PORTUGUÊS -->
+<div class="lang-section" id="sec-pt">
+  <div class="hero">
+    <div class="hero-tag">Conversas · Análise · 2026</div>
+    <h1>Quando o Guboï Empresta</h1>
+    <p class="hero-sub">Uma gravação de voz autêntica revela traços do wolof, francês e português na língua iboï — e as palavras originais que lhes respondem.</p>
+    <div class="hero-meta">Falante nativa uboï · Guiné-Bissau</div>
+  </div>
+  <div class="container">
+    <div class="intro-block">
+      <p>Nesta gravação de voz autêntica, uma falante uboï fala naturalmente. Ouvindo com atenção, algo revelador emerge: a sua língua desliza — quase sem querer — para o wolof, o francês, o português. Não é um defeito. É o som de uma língua em perigo.</p>
+    </div>
+    <div class="audio-card">
+      <div class="audio-label">Conversa autêntica · WhatsApp · 2026</div>
+      <div class="audio-title">Uma voz da manhã</div>
+      <div class="audio-sub">Mensagem de voz enviada cedo de manhã num grupo WhatsApp</div>
+      <audio controls style="width:100%;margin-top:8px;" src="audio/voix-du-matin.mp3">O seu navegador não suporta reprodução de áudio.</audio>
+      <div class="audio-note">Falante nativa uboï · Região de Cacheu, Guiné-Bissau</div>
+    </div>
+    <p class="section-title">Empréstimos identificados</p>
+    <div class="loan-card">
+      <div class="loan-header" onclick="toggle(this)">
+        <span class="lang-badge badge-wolof">Wolof</span>
+        <span class="loan-word">safna sap · torop torop</span>
+        <span class="loan-meaning">muito, bastante</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="loan-body">
+        <div class="analysis-box">O Guboï possui <strong>duas estratégias distintas</strong>: <em>fato</em> em pós-posição para o grau quantitativo, <em>falak</em> em pré-posição para o superlativo. Uma riqueza que <em>torop torop</em> apaga numa só palavra.</div>
+      </div>
+    </div>
+    <div class="loan-card">
+      <div class="loan-header" onclick="toggle(this)">
+        <span class="lang-badge badge-port">Português</span>
+        <span class="loan-word">campagna</span>
+        <span class="loan-meaning">campanha de colheita do caju</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="loan-body">
+        <div class="highlight-phrase">djafagn be-hateh cajou</div>
+        <div class="highlight-gloss">
+          <div class="gloss-item"><div class="gloss-word">djafagn</div><div>lua · período</div></div>
+          <div class="gloss-item"><div class="gloss-word">be-hateh</div><div>colheita</div></div>
+          <div class="gloss-item"><div class="gloss-word">cajou</div><div>caju</div></div>
+        </div>
+        <div class="analysis-box">Onde o português diz <em>campagna</em>, o Guboï diz <strong>"a lua da colheita dos cajus"</strong>. O h de <em>be-hateh</em> é aspirado.</div>
+      </div>
+    </div>
+    <div class="conclusion">
+      <div class="conclusion-title">O que esta voz nos diz</div>
+      <div class="conclusion-text">Uma língua que empresta não é uma língua que capitula. Mas quando os empréstimos cobrem o tempo, a intensidade e o trabalho, é o sinal de uma fragilidade profunda. O Guboï tem as suas palavras. Este projeto existe para as devolver.</div>
+      <div class="proverb">Ayeg'ndina ngo kandjeb.</div>
+      <div class="proverb-trans">Entender-se é a vida. A sobrevivência passa pela comunicação.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p><a href="/">La Voix du Guboï</a> · Langue du peuple Iboï · Guinée-Bissau &amp; Sénégal</p>
+</footer>
+
+<script>
+function setLang(l) {
+  document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('sec-'+l).classList.add('active');
+  document.querySelector('[onclick="setLang(\''+l+'\')"]').classList.add('active');
+}
+function toggle(h) {
+  const b = h.nextElementSibling;
+  const c = h.querySelector('.chevron');
+  const o = b.classList.contains('open');
+  b.classList.toggle('open', !o);
+  c.classList.toggle('open', !o);
+}
+</script>
+</body>
+</html>

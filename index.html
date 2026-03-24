@@ -1309,24 +1309,7 @@
     document.getElementById(id).classList.remove('open');
   }
 
-  function playAudio(btn) {
-    const audioFile = btn.dataset.audio;
-const audio = new Audio(audioFile);
-audio.play();
-    const isPlaying = btn.dataset.playing === 'true';
-    document.querySelectorAll('.play-btn').forEach(b => {
-      b.dataset.playing = 'false';
-      b.querySelector('svg polygon').setAttribute('points', '2,1 11,6 2,11');
-    });
-    if (!isPlaying) {
-      btn.dataset.playing = 'true';
-      btn.querySelector('svg polygon').setAttribute('points', '2,1 5,1 5,11 2,11 M7,1 10,1 10,11 7,11');
-      setTimeout(() => {
-        btn.dataset.playing = 'false';
-        btn.querySelector('svg polygon').setAttribute('points', '2,1 11,6 2,11');
-      }, 3000);
-    }
-  }
+ 
 
   function filterDict(cat) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -1345,6 +1328,53 @@ audio.play();
       document.querySelectorAll('.modal-overlay.open').forEach(m => m.classList.remove('open'));
     }
   });
+  let currentAudio = null;
+let currentBtn = null;
+
+function playAudio(btn) {
+  const audioFile = btn.dataset.audio;
+
+  if (!audioFile) return;
+
+  if (currentAudio && currentBtn === btn) {
+    if (!currentAudio.paused) {
+      currentAudio.pause();
+      btn.dataset.playing = 'false';
+      btn.querySelector('svg polygon').setAttribute('points', '2,1 11,6 2,11');
+      return;
+    } else {
+      currentAudio.play();
+      btn.dataset.playing = 'true';
+      btn.querySelector('svg polygon').setAttribute('points', '2,1 5,1 5,11 2,11 M7,1 10,1 10,11 7,11');
+      return;
+    }
+  }
+
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+  }
+
+  document.querySelectorAll('.play-btn').forEach(b => {
+    b.dataset.playing = 'false';
+    b.querySelector('svg polygon').setAttribute('points', '2,1 11,6 2,11');
+  });
+
+  const audio = new Audio(audioFile);
+  currentAudio = audio;
+  currentBtn = btn;
+
+  audio.play();
+  btn.dataset.playing = 'true';
+  btn.querySelector('svg polygon').setAttribute('points', '2,1 5,1 5,11 2,11 M7,1 10,1 10,11 7,11');
+
+  audio.onended = function () {
+    btn.dataset.playing = 'false';
+    btn.querySelector('svg polygon').setAttribute('points', '2,1 11,6 2,11');
+    currentAudio = null;
+    currentBtn = null;
+  };
+}
 </script>
 
 </body>

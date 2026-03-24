@@ -768,7 +768,7 @@
         <div class="sidebar-box" id="sonores">
           <div class="sidebar-title">Documents sonores</div>
           <div class="audio-entry">
-            <button class="play-btn" onclick="playAudio(this)">
+            <button class="play-btn" onclick="playAudio(this)" data-audio="vocal-0033.mp3">
               <svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"/></svg>
             </button>
             <div class="audio-info">
@@ -1310,6 +1310,9 @@
   }
 
   function playAudio(btn) {
+    const audioFile = btn.dataset.audio;
+const audio = new Audio(audioFile);
+audio.play();
     const isPlaying = btn.dataset.playing === 'true';
     document.querySelectorAll('.play-btn').forEach(b => {
       b.dataset.playing = 'false';

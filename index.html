@@ -646,7 +646,362 @@
 .audio-info span {
   font-size: 0.85rem;
   color: var(--muted);
-}  
+} .audio-entry {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.audio-entry:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.audio-entry.active {
+  border-color: rgba(79, 172, 254, 0.55);
+  box-shadow: 0 0 0 1px rgba(79, 172, 254, 0.25),
+              0 0 18px rgba(79, 172, 254, 0.18);
+}
+
+.play-btn {
+  width: 54px;
+  height: 54px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: #08111f;
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 8px 20px rgba(79,172,254,0.35);
+}
+
+.play-btn:hover {
+  transform: scale(1.08);
+}
+
+.play-btn .icon {
+  position: absolute;
+  transition: all 0.25s ease;
+}
+
+.play-btn .pause-icon {
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+.play-btn.playing .play-icon {
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+.play-btn.playing .pause-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.audio-info {
+  flex: 1;
+}
+
+.audio-info strong {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.audio-info span {
+  display: block;
+  margin-bottom: 0.7rem;
+  color: var(--muted);
+}
+
+.audio-progress {
+  width: 100%;
+  height: 6px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 999px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+.audio-progress-bar {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  transition: width 0.12s linear;
+}
+  /* === AUDIO PLAYER UPGRADE === */
+
+.audio-entry {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.audio-entry:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.audio-entry.active {
+  border-color: rgba(79, 172, 254, 0.55);
+  box-shadow: 0 0 0 1px rgba(79, 172, 254, 0.25),
+              0 0 18px rgba(79, 172, 254, 0.18);
+}
+
+.play-btn {
+  width: 54px;
+  height: 54px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: #08111f;
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 8px 20px rgba(79,172,254,0.35);
+}
+
+.play-btn:hover {
+  transform: scale(1.08);
+}
+
+.play-btn .icon {
+  position: absolute;
+  transition: all 0.25s ease;
+}
+
+.play-btn .pause-icon {
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+.play-btn.playing .play-icon {
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+.play-btn.playing .pause-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+/* === AUDIO PLAYER UPGRADE === */
+
+.audio-entry {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.audio-entry:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.audio-entry.active {
+  border-color: rgba(79, 172, 254, 0.55);
+  box-shadow: 0 0 0 1px rgba(79, 172, 254, 0.25),
+              0 0 18px rgba(79, 172, 254, 0.18);
+}
+
+.play-btn {
+  width: 54px;
+  height: 54px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: #08111f;
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 8px 20px rgba(79,172,254,0.35);
+}
+
+.play-btn:hover {
+  transform: scale(1.08);
+}
+
+.play-btn .icon {
+  position: absolute;
+  transition: all 0.25s ease;
+}
+
+.play-btn .pause-icon {
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+.play-btn.playing .play-icon {
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+.play-btn.playing .pause-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+ /* === AUDIO PLAYER UPGRADE === */
+
+.audio-entry {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.audio-entry:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.audio-entry.active {
+  border-color: rgba(79, 172, 254, 0.55);
+  box-shadow: 0 0 0 1px rgba(79, 172, 254, 0.25),
+              0 0 18px rgba(79, 172, 254, 0.18);
+}
+
+.play-btn {
+  width: 54px;
+  height: 54px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: #08111f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.play-btn .pause-icon {
+  opacity: 0;
+}
+
+.play-btn.playing .play-icon {
+  opacity: 0;
+}
+
+.play-btn.playing .pause-icon {
+  opacity: 1;
+}
+/* === AUDIO PLAYER UPGRADE === */
+
+.audio-entry {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.audio-entry:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.audio-entry.active {
+  border-color: rgba(79, 172, 254, 0.55);
+  box-shadow: 0 0 0 1px rgba(79, 172, 254, 0.25),
+              0 0 18px rgba(79, 172, 254, 0.18);
+}
+
+.play-btn {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.play-btn .pause-icon {
+  opacity: 0;
+}
+
+.play-btn.playing .play-icon {
+  opacity: 0;
+}
+
+.play-btn.playing .pause-icon {
+  opacity: 1;
+}
+  /* === AUDIO PLAYER UPGRADE === */
+
+.audio-entry {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.audio-entry:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.audio-entry.active {
+  border-color: rgba(79, 172, 254, 0.55);
+  box-shadow: 0 0 0 1px rgba(79, 172, 254, 0.25),
+              0 0 18px rgba(79, 172, 254, 0.18);
+}
 </style>
 </head>
 <body>
@@ -826,23 +1181,35 @@
             </div>
           </div>
           <div class="audio-entry">
-            <button class="play-btn" onclick="playAudio(this)" data-audio="PTT-20250729-WA0015.mp3">
-              <svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"/></svg>
-            </button>
-            <div class="audio-info">
-              <strong>Conversations du quotidien</strong>
-             <span>Échange simple entre locuteurs du Guboï</span>
-            </div>
-          </div>
-          <div class="audio-entry">
-            <button class="play-btn" onclick="playAudio(this)" data-audio="Vocal-0012.mp3">
-              <svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"/></svg>
-            </button>
-            <div class="audio-info">
-             <strong>Ayam</strong>
-              <span>Chant de douleur et de trahison intime</span>
-            </div>
-          </div>
+  <button class="play-btn" onclick="playAudio(this)" data-audio="PTT-20250729-WA0015.mp3">
+    <span class="icon play-icon">▶</span>
+    <span class="icon pause-icon">❚❚</span>
+  </button>
+
+  <div class="audio-info">
+    <strong>Conversations du quotidien</strong>
+    <span>Échange simple entre locuteurs du Guboï</span>
+
+    <div class="audio-progress" onclick="seekAudio(event, this)">
+      <div class="audio-progress-bar"></div>
+    </div>
+  </div>
+</div>
+<div class="audio-entry">
+  <button class="play-btn" onclick="playAudio(this)" data-audio="Vocal-0012.mp3">
+    <span class="icon play-icon">▶</span>
+    <span class="icon pause-icon">❚❚</span>
+  </button>
+
+  <div class="audio-info">
+    <strong>Ayam</strong>
+    <span>Chant de douleur et de trahison intime</span>
+
+    <div class="audio-progress" onclick="seekAudio(event, this)">
+      <div class="audio-progress-bar"></div>
+    </div>
+  </div>
+</div>          
           <p style="font-size:0.75rem;color:var(--muted);margin-top:0.8rem;font-family:var(--mono)">Vos fichiers audio seront intégrés ici.</p>
         </div>
 
@@ -1333,8 +1700,77 @@
     <p style="margin-top:0.4rem">Ma ngo Uboï. Nge ngo Iboï. Nge njupa Guboï.</p>
   </div>
 </footer>
+let currentButton = null;
+let progressInterval = null;
 
-<script>
+function playAudio(button) {
+  const file = button.getAttribute("data-audio");
+  const entry = button.closest(".audio-entry");
+  const progressBar = entry ? entry.querySelector(".audio-progress-bar") : null;
+
+  if (currentAudio && currentButton !== button) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+
+    if (currentButton) {
+      currentButton.classList.remove("playing");
+      const oldEntry = currentButton.closest(".audio-entry");
+      if (oldEntry) oldEntry.classList.remove("active");
+      const oldBar = oldEntry ? oldEntry.querySelector(".audio-progress-bar") : null;
+      if (oldBar) oldBar.style.width = "0%";
+    }
+
+    clearInterval(progressInterval);
+  }
+
+  if (!currentAudio || currentButton !== button) {
+    currentAudio = new Audio(file);
+    currentButton = button;
+
+    currentAudio.addEventListener("ended", () => {
+      button.classList.remove("playing");
+      if (entry) entry.classList.remove("active");
+      if (progressBar) progressBar.style.width = "0%";
+      clearInterval(progressInterval);
+    });
+  }
+
+  if (currentAudio.paused) {
+    currentAudio.play();
+    button.classList.add("playing");
+    if (entry) entry.classList.add("active");
+
+    clearInterval(progressInterval);
+    progressInterval = setInterval(() => {
+      if (currentAudio && currentAudio.duration && progressBar) {
+        const percent = (currentAudio.currentTime / currentAudio.duration) * 100;
+        progressBar.style.width = percent + "%";
+      }
+    }, 100);
+  } else {
+    currentAudio.pause();
+    button.classList.remove("playing");
+    if (entry) entry.classList.remove("active");
+    clearInterval(progressInterval);
+  }
+}
+
+function seekAudio(event, progressContainer) {
+  if (!currentAudio || !progressContainer) return;
+  if (!currentAudio.duration) return;
+
+  const rect = progressContainer.getBoundingClientRect();
+  const x = event.clientX - rect.left;
+  const percent = Math.max(0, Math.min(1, x / rect.width));
+
+  currentAudio.currentTime = percent * currentAudio.duration;
+
+  const bar = progressContainer.querySelector(".audio-progress-bar");
+  if (bar) {
+    bar.style.width = (percent * 100) + "%";
+  }
+}
+
   function setLang(lang) {
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
     document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');

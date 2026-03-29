@@ -1818,21 +1818,7 @@ function seekAudio(event, progressContainer) {
   });
 
 
-    const audio = new Audio(audioFile);
-    audio.play();
-
-    btn.classList.add('active');
-btn.closest('.audio-entry').classList.add('active');
-    currentAudio = audio;
-    currentBtn = btn;
-
-    audio.onended = () => {
-        btn.classList.remove('active'
-      btn.closest('.audio-entry').classList.remove('active');
-        currentAudio = null;
-        currentBtn = null;
-    };
-}
+    
 </script>
 
 </body>

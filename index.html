@@ -1816,29 +1816,7 @@ function seekAudio(event, progressContainer) {
       document.querySelectorAll('.modal-overlay.open').forEach(m => m.classList.remove('open'));
     }
   });
-  let currentAudio = null;
-let currentBtn = null;
 
-function playAudio(btn) {
-    const audioFile = btn.dataset.audio;
-
-    if (currentAudio && currentBtn === btn) {
-        currentAudio.pause();
-        currentAudio.currentTime = 0;
-        btn.classList.remove('active');
-        currentAudio = null;
-        currentBtn = null;
-        return;
-    }
-
-    if (currentAudio) {
-        currentAudio.pause();
-        currentAudio.currentTime = 0;
-       if (currentBtn) {
-  currentBtn.classList.remove('active');
-  currentBtn.closest('.audio-entry').classList.remove('active');
-}
-    }
 
     const audio = new Audio(audioFile);
     audio.play();

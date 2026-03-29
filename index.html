@@ -1173,8 +1173,9 @@
           <div class="sidebar-title">Documents sonores</div>
           <div class="audio-entry">
             <button class="play-btn" onclick="playAudio(this)" data-audio="vocal-0033.mp3">
-              <svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"/></svg>
-            </button>
+  <span class="icon play-icon">▶</span>
+  <span class="icon pause-icon">❚❚</span>
+</button>
             <div class="audio-info">
               <strong>Mama Kabambudja</strong>
               <span>Chant de mémoire porté par des voix marquées par le destin</span>
@@ -1700,6 +1701,8 @@
     <p style="margin-top:0.4rem">Ma ngo Uboï. Nge ngo Iboï. Nge njupa Guboï.</p>
   </div>
 </footer>
+  <script>
+let currentAudio = null;
 let currentButton = null;
 let progressInterval = null;
 

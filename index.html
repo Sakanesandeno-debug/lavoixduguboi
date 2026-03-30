@@ -1821,5 +1821,24 @@ function seekAudio(event, progressContainer) {
     
 </script>
 
+  
+
+<script>
+  const audios = document.querySelectorAll("audio");
+
+  audios.forEach(audio => {
+    audio.addEventListener("play", () => {
+      audios.forEach(other => {
+        if (other !== audio) {
+          other.pause();
+          other.currentTime = 0;
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
 </body>
 </html>

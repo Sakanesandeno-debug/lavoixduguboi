@@ -1002,6 +1002,108 @@
   box-shadow: 0 0 0 1px rgba(79, 172, 254, 0.25),
               0 0 18px rgba(79, 172, 254, 0.18);
 }
+
+  /* ─── AUDIO OVERRIDE (stable deploy) ─── */
+  .audio-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .audio-entry:last-child { border-bottom: none; }
+
+  .audio-entry-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .audio-info { font-size: 0.85rem; flex: 1; min-width: 0; }
+  .audio-info strong { display: block; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  .audio-delete-btn {
+    background: none;
+    border: 1px solid var(--rule);
+    color: var(--muted);
+    cursor: pointer;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+
+  .audio-delete-btn:hover {
+    border-color: #c0392b;
+    color: #c0392b;
+  }
+
+  .audio-entry audio {
+    width: 100%;
+    height: 36px;
+    margin-top: 0;
+  }
+
+  .audio-upload-form {
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 1px dashed var(--rule);
+  }
+
+  .audio-upload-form label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .audio-upload-row {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .audio-upload-row input[type="file"] {
+    flex: 1;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    min-width: 0;
+  }
+
+  .audio-upload-btn {
+    padding: 0.35rem 0.8rem;
+    background: var(--accent);
+    color: white;
+    border: none;
+    font-family: var(--serif);
+    font-size: 0.8rem;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background 0.2s;
+    flex-shrink: 0;
+  }
+
+  .audio-upload-btn:hover { background: var(--accent-light); }
+  .audio-upload-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .audio-status {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-top: 0.4rem;
+  }
+
+  .audio-empty {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 0.5rem;
+    font-family: var(--mono);
+  }
 </style>
 </head>
 <body>
@@ -1171,22 +1273,15 @@
         <!-- AUDIO -->
         <div class="sidebar-box" id="sonores">
           <div class="sidebar-title">Documents sonores</div>
-<div class="audio-entry">
-  <button class="play-btn" onclick="playAudio(this)" data-audio="Vocal-0012.mp3">
-    <span class="icon play-icon">▶</span>
-    <span class="icon pause-icon">⏸</span>
-  </button>
-
-  <div class="audio-info">
-    <strong>Ayam</strong>
-    <span>Chant de douleur et de trahison intime</span>
-
-    <div class="audio-progress" onclick="seekAudio(event, this)">
-      <div class="audio-progress-bar"></div>
-    </div>
-  </div>
-</div>
-          <p style="font-size:0.75rem;color:var(--muted);margin-top:0.8rem;font-family:var(--mono)">Vos fichiers audio seront intégrés ici.</p>
+          <div id="audio-list"></div>
+          <div class="audio-upload-form">
+            <label for="audio-file-input">Ajouter un fichier MP3 :</label>
+            <div class="audio-upload-row">
+              <input type="file" id="audio-file-input" accept=".mp3,audio/mpeg">
+              <button class="audio-upload-btn" onclick="uploadAudio()" id="upload-btn">Envoyer</button>
+            </div>
+            <div id="audio-status" class="audio-status"></div>
+          </div>
         </div>
 
         <!-- NEWSLETTER -->
@@ -1677,83 +1772,6 @@
   </div>
 </footer>
   <script>
-let currentAudio = null;
-let currentButton = null;
-let progressInterval = null;
-
-function playAudio(button) {
-  const file = button.getAttribute("data-audio");
-  const entry = button.closest(".audio-entry");
-  const progressBar = entry ? entry.querySelector(".audio-progress-bar") : null;
-
-  if (currentAudio && currentButton !== button) {
-    currentAudio.pause();
-    currentAudio.currentTime = 0;
-
-    if (currentButton) {
-      currentButton.classList.remove("playing");
-      const oldEntry = currentButton.closest(".audio-entry");
-      if (oldEntry) oldEntry.classList.remove("active");
-      const oldBar = oldEntry ? oldEntry.querySelector(".audio-progress-bar") : null;
-      if (oldBar) oldBar.style.width = "0%";
-    }
-
-    clearInterval(progressInterval);
-  }
-
-  if (!currentAudio || currentButton !== button) {
-    currentAudio = new Audio(file);
-    currentButton = button;
-currentAudio.addEventListener("timeupdate", () => {
-  if (progressBar && currentAudio.duration) {
-    const percent = (currentAudio.currentTime / currentAudio.duration) * 100;
-    progressBar.style.width = percent + "%";
-  }
-});
-    currentAudio.addEventListener("ended", () => {
-      button.classList.remove("playing");
-      if (entry) entry.classList.remove("active");
-      if (progressBar) progressBar.style.width = "0%";
-      clearInterval(progressInterval);
-    });
-  }
-
-  if (currentAudio.paused) {
-    currentAudio.play();
-    button.classList.add("playing");
-    if (entry) entry.classList.add("active");
-
-    clearInterval(progressInterval);
-    progressInterval = setInterval(() => {
-      if (currentAudio && currentAudio.duration && progressBar) {
-        const percent = (currentAudio.currentTime / currentAudio.duration) * 100;
-        progressBar.style.width = percent + "%";
-      }
-    }, 100);
-  } else {
-    currentAudio.pause();
-    button.classList.remove("playing");
-    if (entry) entry.classList.remove("active");
-    clearInterval(progressInterval);
-  }
-}
-
-function seekAudio(event, progressContainer) {
-  if (!currentAudio || !progressContainer) return;
-  if (!currentAudio.duration) return;
-
-  const rect = progressContainer.getBoundingClientRect();
-  const x = event.clientX - rect.left;
-  const percent = Math.max(0, Math.min(1, x / rect.width));
-
-  currentAudio.currentTime = percent * currentAudio.duration;
-
-  const bar = progressContainer.querySelector(".audio-progress-bar");
-  if (bar) {
-    bar.style.width = (percent * 100) + "%";
-  }
-}
-
   function setLang(lang) {
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
     document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
@@ -1776,6 +1794,88 @@ function seekAudio(event, progressContainer) {
   function closeModalById(id) {
     document.getElementById(id).classList.remove('open');
   }
+
+  // ─── AUDIO LIBRARY ───
+  async function loadAudioList() {
+    const container = document.getElementById('audio-list');
+    try {
+      const res = await fetch('/api/audio');
+      const files = await res.json();
+      if (!files.length) {
+        container.innerHTML = '<p class="audio-empty">Aucun fichier audio pour le moment.</p>';
+        return;
+      }
+      container.innerHTML = files.map(f => `
+        <div class="audio-entry">
+          <div class="audio-entry-header">
+            <div class="audio-info"><strong>${escapeHtml(f.name)}</strong></div>
+            <button class="audio-delete-btn" onclick="deleteAudio('${escapeHtml(f.key)}')">supprimer</button>
+          </div>
+          <audio controls preload="none" src="/api/audio/file?key=${encodeURIComponent(f.key)}"></audio>
+        </div>
+      `).join('');
+    } catch (e) {
+      container.innerHTML = '<p class="audio-empty">Erreur de chargement.</p>';
+    }
+  }
+
+  function escapeHtml(str) {
+    const d = document.createElement('div');
+    d.textContent = str;
+    return d.innerHTML;
+  }
+
+  async function uploadAudio() {
+    const input = document.getElementById('audio-file-input');
+    const status = document.getElementById('audio-status');
+    const btn = document.getElementById('upload-btn');
+
+    if (!input.files.length) {
+      status.textContent = 'Veuillez sélectionner un fichier MP3.';
+      return;
+    }
+
+    const file = input.files[0];
+    if (!file.name.toLowerCase().endsWith('.mp3')) {
+      status.textContent = 'Seuls les fichiers MP3 sont acceptés.';
+      return;
+    }
+
+    btn.disabled = true;
+    status.textContent = 'Envoi en cours…';
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const res = await fetch('/api/audio/upload', { method: 'POST', body: formData });
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(text);
+      }
+      status.textContent = 'Fichier ajouté !';
+      input.value = '';
+      await loadAudioList();
+      setTimeout(() => { status.textContent = ''; }, 3000);
+    } catch (e) {
+      status.textContent = 'Erreur : ' + e.message;
+    } finally {
+      btn.disabled = false;
+    }
+  }
+
+  async function deleteAudio(key) {
+    if (!confirm('Supprimer ce fichier audio ?')) return;
+    try {
+      const res = await fetch('/api/audio/delete?key=' + encodeURIComponent(key), { method: 'DELETE' });
+      if (!res.ok) throw new Error('Erreur');
+      await loadAudioList();
+    } catch (e) {
+      alert('Erreur lors de la suppression.');
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', loadAudioList);
 
  
 
@@ -1818,7 +1918,5 @@ function seekAudio(event, progressContainer) {
   });
 </script>
 
-</body>
-</html>
 </body>
 </html>

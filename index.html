@@ -1104,6 +1104,13 @@
     margin-top: 0.5rem;
     font-family: var(--mono);
   }
+  .audio-legend {
+  font-style: italic;
+  font-size: 0.88em;
+  color: var(--muted);
+  margin: 6px 0 0 0;
+  line-height: 1.5;
+}
 </style>
 </head>
 <body>
@@ -1808,6 +1815,11 @@
   }
 
   // ─── AUDIO LIBRARY ───
+    const audioLegends = {
+  'PTT-20250729-WA0015.mp3': 'Une voix guboï du matin salue les membres du groupe WhatsApp et demande des nouvelles. La parole quotidienne dans toute son authenticité : saluer, c\'est reconnaître l\'autre ; répondre, c\'est exister ensemble.',
+  'Vocal-0033.mp3': 'Des enfants nés à Kaboï d\'une mère de Kagnugne chantent leur malheur : les Iboï ont fait d\'eux des boucs émissaires, destinés à être sacrifiés. Une voix qui refuse l\'oubli et transmet ce que l\'histoire ne peut écrire.',
+  'Vocal-0012.mp3': 'Un fils chante la trahison de sa propre mère : les confidences qu\'il lui avait livrées ont été retournées contre lui, brisant ses projets et ses espoirs. Dans la culture Guboï, le chant dit ce que les mots directs ne peuvent porter.'
+};
   async function loadAudioList() {
     const container = document.getElementById('audio-list');
     try {
@@ -1824,7 +1836,8 @@
             <button class="audio-delete-btn" onclick="deleteAudio('${escapeHtml(f.key)}')">supprimer</button>
           </div>
           <audio controls preload="none" src="/api/audio/file?key=${encodeURIComponent(f.key)}"></audio>
-        </div>
+${audioLegends[f.name] ? `<p class="audio-legend">${audioLegends[f.name]}</p>` : ''}
+</div>
       `).join('');
     } catch (e) {
       container.innerHTML = '<p class="audio-empty">Erreur de chargement.</p>';

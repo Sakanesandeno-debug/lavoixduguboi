@@ -1949,7 +1949,7 @@ container.appendChild(legend);
     }
   }
 
-  document.addEventListener('DOMContentLoaded', loadAudioList);
+  document.addEventListener('DOMContentLoaded', () => { loadAudioList(); loadVideoList(); });
 
  
 

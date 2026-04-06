@@ -1673,6 +1673,15 @@
           <div class="definition">Obrigado — onomatopeia nativa que expressa gratidão.</div>
           <div class="translations">🇫🇷 Merci &nbsp;·&nbsp; 🇬🇧 Thank you &nbsp;·&nbsp; 🇵🇹 Obrigado</div>
         </div>
+        <div class="sidebar-box" id="sonores-pt">
+          <div class="sidebar-title">Documentos Sonoros</div>
+          <div id="audio-list-pt"></div>
+        </div>
+        <div class="sidebar-box">
+          <div class="sidebar-title">Documentos Vídeo</div>
+          <iframe width="100%" height="215" src="https://www.youtube.com/embed/DtVX7vBTcpM" title="Gvomblo" frameborder="0" allowfullscreen></iframe>
+          <p style="font-family:var(--serif);font-style:italic;color:var(--muted);font-size:0.88em;margin-top:0.5rem"><strong>Gvomblo VID 2026</strong> — O gvomblo é um instrumento musical funerário do povo Iboï. O seu som anuncia aos antepassados a chegada de um dos seus no além.</p>
+        </div>
         <div class="sidebar-box">
           <div class="sidebar-title">Boletim</div>
           <p style="font-size:0.85rem">Receba novas publicações e documentos sonoros.</p>
@@ -1960,13 +1969,13 @@ container.appendChild(legend);
   }
 
   const legendsEn = {
-    'PTT-20250729-WA0015.mp3': 'An authentic Guboï morning voice greets group members and asks for news. Everyday speech in its full authenticity.',
+    'PTT-20250729-WA0015.mp3': 'An authentic Guboï morning voice greets group members and asks for news.',
     'Vocal-0033.mp3': 'Children born in Kaboï sing of their misfortune. A voice that refuses to be forgotten.',
     'Vocal-0012.mp3': "A son sings of his own mother's betrayal. In Guboï culture, song carries what direct words cannot."
   };
 
   const legendsPt = {
-    'PTT-20250729-WA0015.mp3': 'Uma voz guboï da manhã saúda os membros do grupo e pede notícias. A palavra quotidiana na sua autenticidade.',
+    'PTT-20250729-WA0015.mp3': 'Uma voz guboï da manhã saúda os membros do grupo e pede notícias.',
     'Vocal-0033.mp3': 'Crianças nascidas em Kaboï cantam o seu infortúnio. Uma voz que recusa o esquecimento.',
     'Vocal-0012.mp3': 'Um filho canta a traição da sua própria mãe. Na cultura Guboï, o canto diz o que as palavras directas não podem.'
   };
@@ -1981,9 +1990,14 @@ container.appendChild(legend);
  
 
   function filterDict(cat) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    // Trouver le panel actif
+    const activePanel = document.querySelector('.lang-panel.active');
+    if (!activePanel) return;
+    // Désactiver tous les boutons filtres du panel actif seulement
+    activePanel.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     event.target.classList.add('active');
-    document.querySelectorAll('.dict-card').forEach(card => {
+    // Filtrer uniquement les cartes du panel actif
+    activePanel.querySelectorAll('.dict-card').forEach(card => {
       if (cat === 'all' || card.dataset.cat === cat) {
         card.classList.remove('hidden');
       } else {

@@ -1584,6 +1584,15 @@
           <div class="definition">Thank you — a native onomatopoeia expressing gratitude.</div>
           <div class="translations">🇫🇷 Merci &nbsp;·&nbsp; 🇬🇧 Thank you &nbsp;·&nbsp; 🇵🇹 Obrigado</div>
         </div>
+        <div class="sidebar-box" id="sonores-en">
+          <div class="sidebar-title">Audio Documents</div>
+          <div id="audio-list-en"></div>
+        </div>
+        <div class="sidebar-box">
+          <div class="sidebar-title">Video Documents</div>
+          <iframe width="100%" height="215" src="https://www.youtube.com/embed/DtVX7vBTcpM" title="Gvomblo" frameborder="0" allowfullscreen></iframe>
+          <p style="font-family:var(--serif);font-style:italic;color:var(--muted);font-size:0.88em;margin-top:0.5rem"><strong>Gvomblo VID 2026</strong> — The gvomblo is a funerary musical instrument of the Iboï people. Its sound announces to the ancestors the arrival of one of their own in the afterlife.</p>
+        </div>
         <div class="sidebar-box">
           <div class="sidebar-title">Newsletter</div>
           <p style="font-size:0.85rem">Receive new publications and audio documents.</p>
@@ -1594,123 +1603,6 @@
         </div>
       </aside>
     </div>
-
-    <!-- DICTIONARY EN -->
-    <section id="dictionnaire-en" style="border-top:1px solid var(--rule);padding:2rem 0">
-      <div class="section-label">Dictionary · 101 authentic words</div>
-      <h2>Learn Guboï</h2>
-      <p style="font-size:0.92rem;color:var(--muted);margin-bottom:1rem">These words have been transmitted and validated by a native Uboï speaker. They will be completed over time.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem">
-        <button class="filter-btn active" onclick="filterDict('all')">All</button>
-        <button class="filter-btn" onclick="filterDict('salutation')">Greetings</button>
-        <button class="filter-btn" onclick="filterDict('famille')">Family</button>
-        <button class="filter-btn" onclick="filterDict('corps')">Body</button>
-        <button class="filter-btn" onclick="filterDict('nature')">Nature</button>
-        <button class="filter-btn" onclick="filterDict('vie')">Daily life</button>
-        <button class="filter-btn" onclick="filterDict('verbe')">Verbs</button>
-        <button class="filter-btn" onclick="filterDict('sentiment')">Feelings</button>
-      </div>
-      <div class="dict-grid" id="dict-grid-en">
-        <div class="dict-card" data-cat="vie"><span class="dict-word">A buni</span><span class="dict-class">Expression</span><div class="dict-def">It's good</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">A zingi</span><span class="dict-class">Expression</span><div class="dict-def">It's bad</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Abah</span><span class="dict-class">Noun · sg</span><div class="dict-def">The foot</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Adaf</span><span class="dict-class">Noun</span><div class="dict-def">The neck</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Adem</span><span class="dict-class">Noun</span><div class="dict-def">The chin / the beard</div></div>
-        <div class="dict-card" data-cat="nature"><span class="dict-word">Adin</span><span class="dict-class">Noun</span><div class="dict-def">The well</div><div class="dict-trans"><em>adine</em></div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Akondj</span><span class="dict-class">Noun</span><div class="dict-def">The calabash</div></div>
-        <div class="dict-card" data-cat="salutation"><span class="dict-word">Apèn</span><span class="dict-class">Greeting · noon</span><div class="dict-def">Good afternoon (noon)</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Atchih</span><span class="dict-class">Noun</span><div class="dict-def">The mouth</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Atola</span><span class="dict-class">Noun</span><div class="dict-def">The meal</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Atola mbatchi</span><span class="dict-class">Expression</span><div class="dict-def">The meal is served</div></div>
-        <div class="dict-card" data-cat="sentiment"><span class="dict-word">Ayeg'ndina ngo kandjeb</span><span class="dict-class">Proverb</span><div class="dict-def">To understand each other is life</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Batiam</span><span class="dict-class">Noun</span><div class="dict-def">Money</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Batiama</span><span class="dict-class">Noun · pl</span><div class="dict-def">Domestic animals (cows, goats, pigs...)</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Bayaab</span><span class="dict-class">Noun</span><div class="dict-def">The drink</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Baze</span><span class="dict-class">Noun · sg</span><div class="dict-def">The cow</div><div class="dict-trans"><em>bazé</em></div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Bazera</span><span class="dict-class">Noun · pl</span><div class="dict-def">The cows</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be bo</span><span class="dict-class">Verb</span><div class="dict-def">To suckle</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be buba</span><span class="dict-class">Verb</span><div class="dict-def">To wash oneself</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be fal</span><span class="dict-class">Verb</span><div class="dict-def">To go / to leave</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be ghane</span><span class="dict-class">Verb</span><div class="dict-def">To love (feeling)</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be gnamo</span><span class="dict-class">Verb</span><div class="dict-def">To be sick</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be hedjin</span><span class="dict-class">Verb (irr.)</span><div class="dict-def">To cook</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be her</span><span class="dict-class">Verb (very irr.)</span><div class="dict-def">To hate</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be hob</span><span class="dict-class">Verb</span><div class="dict-def">To eat (to taste, to bite)</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be louh</span><span class="dict-class">Verb (very irr.)</span><div class="dict-def">To work</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be nika</span><span class="dict-class">Verb</span><div class="dict-def">To lie down</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be nikal</span><span class="dict-class">Verb</span><div class="dict-def">To sleep with...</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be niss</span><span class="dict-class">Verb</span><div class="dict-def">To die</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be waaf</span><span class="dict-class">Verb</span><div class="dict-def">To sell</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be wopeh</span><span class="dict-class">Verb</span><div class="dict-def">To marry</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be wopeho</span><span class="dict-class">Verb</span><div class="dict-def">To be married</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be yaab</span><span class="dict-class">Verb</span><div class="dict-def">To drink</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be zeb</span><span class="dict-class">Verb</span><div class="dict-def">To heal</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Bebin</span><span class="dict-class">Noun · sg</span><div class="dict-def">The breast</div></div>
-        <div class="dict-card" data-cat="salutation"><span class="dict-word">Bganeg</span><span class="dict-class">Greeting · evening</span><div class="dict-def">Good evening</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Bgiss</span><span class="dict-class">Noun</span><div class="dict-def">The face / the figure</div><div class="dict-trans"><em>beguiss</em></div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Bgof</span><span class="dict-class">Noun</span><div class="dict-def">The head</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Bniss</span><span class="dict-class">Noun</span><div class="dict-def">Death</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Diarem</span><span class="dict-class">Noun</span><div class="dict-def">The tongue (organ)</div><div class="dict-trans"><em>diarum</em></div></div>
-        <div class="dict-card" data-cat="nature"><span class="dict-word">Din</span><span class="dict-class">Noun · sg</span><div class="dict-def">The rain / the year</div><div class="dict-trans"><em>dine</em></div></div>
-        <div class="dict-card" data-cat="nature"><span class="dict-word">Dina</span><span class="dict-class">Noun · pl</span><div class="dict-def">Years</div></div>
-        <div class="dict-card" data-cat="nature"><span class="dict-word">Djafagn</span><span class="dict-class">Noun</span><div class="dict-def">The moon / the month</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Djahac</span><span class="dict-class">Noun · sg</span><div class="dict-def">The hand</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Djahac dji magn</span><span class="dict-class">Compound noun</span><div class="dict-def">The left hand</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Djahac dji maleh</span><span class="dict-class">Compound noun</span><div class="dict-def">The right hand</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Djifek</span><span class="dict-class">Noun · sg</span><div class="dict-def">The pig</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Djifeka</span><span class="dict-class">Noun · pl</span><div class="dict-def">The pigs</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Dogho</span><span class="dict-class">Noun</span><div class="dict-def">Work</div><div class="dict-trans"><em>doghone</em></div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Faghass</span><span class="dict-class">Noun · sg</span><div class="dict-def">The goat</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Faghassa</span><span class="dict-class">Noun · pl</span><div class="dict-def">The goats</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Gabah</span><span class="dict-class">Noun · pl</span><div class="dict-def">The feet</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Gabin</span><span class="dict-class">Noun · pl</span><div class="dict-def">The breasts</div><div class="dict-trans"><em>gabine</em></div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Gegeh</span><span class="dict-class">Noun · pl</span><div class="dict-def">The eyes</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Gegnikin</span><span class="dict-class">Noun</span><div class="dict-def">The nose</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Gemal</span><span class="dict-class">Noun · sg</span><div class="dict-def">The lip</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Ghahac</span><span class="dict-class">Noun · pl</span><div class="dict-def">The hands</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Ghamal</span><span class="dict-class">Noun · pl</span><div class="dict-def">The lips</div><div class="dict-trans"><em>gh = ing</em></div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Gopeh</span><span class="dict-class">Noun</span><div class="dict-def">Marriage</div><div class="dict-trans"><em>gopeuh, h aspiré</em></div></div>
-        <div class="dict-card" data-cat="salutation"><span class="dict-word">Guinden</span><span class="dict-class">Greeting · night</span><div class="dict-def">Good night</div></div>
-        <div class="dict-card" data-cat="salutation"><span class="dict-word">Guluna</span><span class="dict-class">Greeting · morning</span><div class="dict-def">Good morning</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Kandjeb</span><span class="dict-class">Noun</span><div class="dict-def">Health</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Ku buné</span><span class="dict-class">Expression</span><div class="dict-def">What is good</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Ku hibé</span><span class="dict-class">Expression</span><div class="dict-def">What is good (flavour, happiness)</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Ku zingé</span><span class="dict-class">Expression</span><div class="dict-def">What is bad / misfortune</div></div>
-        <div class="dict-card" data-cat="sentiment"><span class="dict-word">Ma ghanen</span><span class="dict-class">Expression</span><div class="dict-def">I love you</div></div>
-        <div class="dict-card" data-cat="sentiment"><span class="dict-word">Ma keren</span><span class="dict-class">Expression</span><div class="dict-def">I hate you</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Mafos</span><span class="dict-class">Noun</span><div class="dict-def">Salt</div></div>
-        <div class="dict-card" data-cat="nature"><span class="dict-word">Maleh</span><span class="dict-class">Noun</span><div class="dict-def">Water</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Mam</span><span class="dict-class">Noun</span><div class="dict-def">Grandfather / grandmother</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Manone</span><span class="dict-class">Noun</span><div class="dict-def">Milk</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Manum</span><span class="dict-class">Noun</span><div class="dict-def">Rice</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Maranol</span><span class="dict-class">Noun</span><div class="dict-def">Cream of milk</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Mbegni</span><span class="dict-class">Noun</span><div class="dict-def">The uncle</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Mbingi</span><span class="dict-class">Noun</span><div class="dict-def">The aunt</div></div>
-        <div class="dict-card" data-cat="salutation"><span class="dict-word">Nambu</span><span class="dict-class">Adjective</span><div class="dict-def">Well, good state</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Saan</span><span class="dict-class">Noun</span><div class="dict-def">The body</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Si waaf</span><span class="dict-class">Noun</span><div class="dict-def">The sale</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Sigeh</span><span class="dict-class">Noun · sg</span><div class="dict-def">The eye</div><div class="dict-trans"><em>sigueuh</em></div></div>
-        <div class="dict-card" data-cat="nature"><span class="dict-word">Sikind</span><span class="dict-class">Noun</span><div class="dict-def">The rope / the lifeline</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Takuh</span><span class="dict-class">Noun</span><div class="dict-def">The family / the home / home</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">U fir</span><span class="dict-class">Noun</span><div class="dict-def">The brother / the sister</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">U fir uligen</span><span class="dict-class">Compound noun</span><div class="dict-def">The brother</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">U fir ulikam</span><span class="dict-class">Compound noun</span><div class="dict-def">The sister</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Ubol</span><span class="dict-class">Noun</span><div class="dict-def">The bowl</div></div>
-        <div class="dict-card" data-cat="nature"><span class="dict-word">Udo</span><span class="dict-class">Noun</span><div class="dict-def">The tree / the medicine</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Uli</span><span class="dict-class">Noun</span><div class="dict-def">The person</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Ulige</span><span class="dict-class">Noun</span><div class="dict-def">A gentleman (unknown)</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Uligen</span><span class="dict-class">Noun</span><div class="dict-def">The man</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Ulika</span><span class="dict-class">Noun</span><div class="dict-def">A lady (unknown)</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Ulikam</span><span class="dict-class">Noun</span><div class="dict-def">The woman</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Uman takuh</span><span class="dict-class">Compound noun</span><div class="dict-def">The head of the family</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Wal</span><span class="dict-class">Noun</span><div class="dict-def">A child</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Wal ulige</span><span class="dict-class">Compound noun</span><div class="dict-def">A boy</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Wal ulika</span><span class="dict-class">Compound noun</span><div class="dict-def">A girl</div></div>
-        <div class="dict-card" data-cat="salutation"><span class="dict-word">Yoo</span><span class="dict-class">Onomatopoeia</span><div class="dict-def">Thank you</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Zegen</span><span class="dict-class">Noun</span><div class="dict-def">Hair</div></div>
-      </div>
-    </section>
-
   </div>
 
   <!-- ══════════════ PANEL PORTUGAIS ══════════════ -->
@@ -1791,123 +1683,6 @@
         </div>
       </aside>
     </div>
-
-    <!-- DICIONÁRIO PT -->
-    <section id="dictionnaire-pt" style="border-top:1px solid var(--rule);padding:2rem 0">
-      <div class="section-label">Dicionário · 101 palavras autênticas</div>
-      <h2>Aprender o Guboï</h2>
-      <p style="font-size:0.92rem;color:var(--muted);margin-bottom:1rem">Estas palavras foram transmitidas e validadas por um falante nativo Uboï. Serão completadas ao longo do tempo.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem">
-        <button class="filter-btn active" onclick="filterDict('all')">Todas</button>
-        <button class="filter-btn" onclick="filterDict('salutation')">Saudações</button>
-        <button class="filter-btn" onclick="filterDict('famille')">Família</button>
-        <button class="filter-btn" onclick="filterDict('corps')">Corpo</button>
-        <button class="filter-btn" onclick="filterDict('nature')">Natureza</button>
-        <button class="filter-btn" onclick="filterDict('vie')">Vida quotidiana</button>
-        <button class="filter-btn" onclick="filterDict('verbe')">Verbos</button>
-        <button class="filter-btn" onclick="filterDict('sentiment')">Sentimentos</button>
-      </div>
-      <div class="dict-grid" id="dict-grid-pt">
-        <div class="dict-card" data-cat="vie"><span class="dict-word">A buni</span><span class="dict-class">Expressão</span><div class="dict-def">É bom</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">A zingi</span><span class="dict-class">Expressão</span><div class="dict-def">É mau</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Abah</span><span class="dict-class">Nome · sg</span><div class="dict-def">O pé</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Adaf</span><span class="dict-class">Nome</span><div class="dict-def">O pescoço</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Adem</span><span class="dict-class">Nome</span><div class="dict-def">O queixo / a barba</div></div>
-        <div class="dict-card" data-cat="nature"><span class="dict-word">Adin</span><span class="dict-class">Nome</span><div class="dict-def">O poço</div><div class="dict-trans"><em>adine</em></div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Akondj</span><span class="dict-class">Nome</span><div class="dict-def">A cabaça</div></div>
-        <div class="dict-card" data-cat="salutation"><span class="dict-word">Apèn</span><span class="dict-class">Saudação · meio-dia</span><div class="dict-def">Bom dia (meio-dia)</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Atchih</span><span class="dict-class">Nome</span><div class="dict-def">A boca</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Atola</span><span class="dict-class">Nome</span><div class="dict-def">A refeição</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Atola mbatchi</span><span class="dict-class">Expressão</span><div class="dict-def">A refeição está servida</div></div>
-        <div class="dict-card" data-cat="sentiment"><span class="dict-word">Ayeg'ndina ngo kandjeb</span><span class="dict-class">Provérbio</span><div class="dict-def">Entender-se é a vida</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Batiam</span><span class="dict-class">Nome</span><div class="dict-def">O dinheiro</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Batiama</span><span class="dict-class">Nome · pl</span><div class="dict-def">Os animais domésticos (vacas, cabras, porcos...)</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Bayaab</span><span class="dict-class">Nome</span><div class="dict-def">A bebida</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Baze</span><span class="dict-class">Nome · sg</span><div class="dict-def">A vaca</div><div class="dict-trans"><em>bazé</em></div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Bazera</span><span class="dict-class">Nome · pl</span><div class="dict-def">As vacas</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be bo</span><span class="dict-class">Verbo</span><div class="dict-def">Mamar</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be buba</span><span class="dict-class">Verbo</span><div class="dict-def">Lavar-se</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be fal</span><span class="dict-class">Verbo</span><div class="dict-def">Ir / partir</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be ghane</span><span class="dict-class">Verbo</span><div class="dict-def">Amar (sentimento)</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be gnamo</span><span class="dict-class">Verbo</span><div class="dict-def">Estar doente</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be hedjin</span><span class="dict-class">Verbo (irr.)</span><div class="dict-def">Cozinhar</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be her</span><span class="dict-class">Verbo (muito irr.)</span><div class="dict-def">Detestar</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be hob</span><span class="dict-class">Verbo</span><div class="dict-def">Comer (saborear, morder)</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be louh</span><span class="dict-class">Verbo (muito irr.)</span><div class="dict-def">Trabalhar</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be nika</span><span class="dict-class">Verbo</span><div class="dict-def">Deitar-se</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be nikal</span><span class="dict-class">Verbo</span><div class="dict-def">Dormir com...</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be niss</span><span class="dict-class">Verbo</span><div class="dict-def">Morrer</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be waaf</span><span class="dict-class">Verbo</span><div class="dict-def">Vender</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be wopeh</span><span class="dict-class">Verbo</span><div class="dict-def">Casar</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be wopeho</span><span class="dict-class">Verbo</span><div class="dict-def">Ser casado(a)</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be yaab</span><span class="dict-class">Verbo</span><div class="dict-def">Beber</div></div>
-        <div class="dict-card" data-cat="verbe"><span class="dict-word">Be zeb</span><span class="dict-class">Verbo</span><div class="dict-def">Curar</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Bebin</span><span class="dict-class">Nome · sg</span><div class="dict-def">O seio</div></div>
-        <div class="dict-card" data-cat="salutation"><span class="dict-word">Bganeg</span><span class="dict-class">Saudação · tarde</span><div class="dict-def">Boa tarde</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Bgiss</span><span class="dict-class">Nome</span><div class="dict-def">O rosto / a figura</div><div class="dict-trans"><em>beguiss</em></div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Bgof</span><span class="dict-class">Nome</span><div class="dict-def">A cabeça</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Bniss</span><span class="dict-class">Nome</span><div class="dict-def">A morte</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Diarem</span><span class="dict-class">Nome</span><div class="dict-def">A língua (órgão)</div><div class="dict-trans"><em>diarum</em></div></div>
-        <div class="dict-card" data-cat="nature"><span class="dict-word">Din</span><span class="dict-class">Nome · sg</span><div class="dict-def">A chuva / o ano</div><div class="dict-trans"><em>dine</em></div></div>
-        <div class="dict-card" data-cat="nature"><span class="dict-word">Dina</span><span class="dict-class">Nome · pl</span><div class="dict-def">Os anos</div></div>
-        <div class="dict-card" data-cat="nature"><span class="dict-word">Djafagn</span><span class="dict-class">Nome</span><div class="dict-def">A lua / o mês</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Djahac</span><span class="dict-class">Nome · sg</span><div class="dict-def">A mão</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Djahac dji magn</span><span class="dict-class">Nome composto</span><div class="dict-def">A mão esquerda</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Djahac dji maleh</span><span class="dict-class">Nome composto</span><div class="dict-def">A mão direita</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Djifek</span><span class="dict-class">Nome · sg</span><div class="dict-def">O porco</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Djifeka</span><span class="dict-class">Nome · pl</span><div class="dict-def">Os porcos</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Dogho</span><span class="dict-class">Nome</span><div class="dict-def">O trabalho</div><div class="dict-trans"><em>doghone</em></div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Faghass</span><span class="dict-class">Nome · sg</span><div class="dict-def">A cabra</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Faghassa</span><span class="dict-class">Nome · pl</span><div class="dict-def">As cabras</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Gabah</span><span class="dict-class">Nome · pl</span><div class="dict-def">Os pés</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Gabin</span><span class="dict-class">Nome · pl</span><div class="dict-def">Os seios</div><div class="dict-trans"><em>gabine</em></div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Gegeh</span><span class="dict-class">Nome · pl</span><div class="dict-def">Os olhos</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Gegnikin</span><span class="dict-class">Nome</span><div class="dict-def">O nariz</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Gemal</span><span class="dict-class">Nome · sg</span><div class="dict-def">O lábio</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Ghahac</span><span class="dict-class">Nome · pl</span><div class="dict-def">As mãos</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Ghamal</span><span class="dict-class">Nome · pl</span><div class="dict-def">Os lábios</div><div class="dict-trans"><em>gh = ing</em></div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Gopeh</span><span class="dict-class">Nome</span><div class="dict-def">O casamento</div><div class="dict-trans"><em>gopeuh, h aspiré</em></div></div>
-        <div class="dict-card" data-cat="salutation"><span class="dict-word">Guinden</span><span class="dict-class">Saudação · noite</span><div class="dict-def">Boa noite</div></div>
-        <div class="dict-card" data-cat="salutation"><span class="dict-word">Guluna</span><span class="dict-class">Saudação · manhã</span><div class="dict-def">Bom dia (manhã)</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Kandjeb</span><span class="dict-class">Nome</span><div class="dict-def">A saúde</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Ku buné</span><span class="dict-class">Expressão</span><div class="dict-def">O que é bom</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Ku hibé</span><span class="dict-class">Expressão</span><div class="dict-def">O que é bom (sabor, felicidade)</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Ku zingé</span><span class="dict-class">Expressão</span><div class="dict-def">O que é mau / o infortúnio</div></div>
-        <div class="dict-card" data-cat="sentiment"><span class="dict-word">Ma ghanen</span><span class="dict-class">Expressão</span><div class="dict-def">Eu te amo</div></div>
-        <div class="dict-card" data-cat="sentiment"><span class="dict-word">Ma keren</span><span class="dict-class">Expressão</span><div class="dict-def">Eu te odeio</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Mafos</span><span class="dict-class">Nome</span><div class="dict-def">O sal</div></div>
-        <div class="dict-card" data-cat="nature"><span class="dict-word">Maleh</span><span class="dict-class">Nome</span><div class="dict-def">A água</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Mam</span><span class="dict-class">Nome</span><div class="dict-def">O avô / a avó</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Manone</span><span class="dict-class">Nome</span><div class="dict-def">O leite</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Manum</span><span class="dict-class">Nome</span><div class="dict-def">O arroz</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Maranol</span><span class="dict-class">Nome</span><div class="dict-def">O creme de leite</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Mbegni</span><span class="dict-class">Nome</span><div class="dict-def">O tio</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Mbingi</span><span class="dict-class">Nome</span><div class="dict-def">A tia</div></div>
-        <div class="dict-card" data-cat="salutation"><span class="dict-word">Nambu</span><span class="dict-class">Adjetivo</span><div class="dict-def">Bem, bom estado</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Saan</span><span class="dict-class">Nome</span><div class="dict-def">O corpo</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Si waaf</span><span class="dict-class">Nome</span><div class="dict-def">A venda</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Sigeh</span><span class="dict-class">Nome · sg</span><div class="dict-def">O olho</div><div class="dict-trans"><em>sigueuh</em></div></div>
-        <div class="dict-card" data-cat="nature"><span class="dict-word">Sikind</span><span class="dict-class">Nome</span><div class="dict-def">A corda / a linha de vida</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Takuh</span><span class="dict-class">Nome</span><div class="dict-def">A família / a casa / em casa</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">U fir</span><span class="dict-class">Nome</span><div class="dict-def">O irmão / a irmã</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">U fir uligen</span><span class="dict-class">Nome composto</span><div class="dict-def">O irmão</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">U fir ulikam</span><span class="dict-class">Nome composto</span><div class="dict-def">A irmã</div></div>
-        <div class="dict-card" data-cat="vie"><span class="dict-word">Ubol</span><span class="dict-class">Nome</span><div class="dict-def">A tigela</div></div>
-        <div class="dict-card" data-cat="nature"><span class="dict-word">Udo</span><span class="dict-class">Nome</span><div class="dict-def">A árvore / o medicamento</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Uli</span><span class="dict-class">Nome</span><div class="dict-def">A pessoa</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Ulige</span><span class="dict-class">Nome</span><div class="dict-def">Um senhor (desconhecido)</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Uligen</span><span class="dict-class">Nome</span><div class="dict-def">O homem</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Ulika</span><span class="dict-class">Nome</span><div class="dict-def">Uma senhora (desconhecida)</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Ulikam</span><span class="dict-class">Nome</span><div class="dict-def">A mulher</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Uman takuh</span><span class="dict-class">Nome composto</span><div class="dict-def">O chefe de família</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Wal</span><span class="dict-class">Nome</span><div class="dict-def">Uma criança</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Wal ulige</span><span class="dict-class">Nome composto</span><div class="dict-def">Um rapaz</div></div>
-        <div class="dict-card" data-cat="famille"><span class="dict-word">Wal ulika</span><span class="dict-class">Nome composto</span><div class="dict-def">Uma rapariga</div></div>
-        <div class="dict-card" data-cat="salutation"><span class="dict-word">Yoo</span><span class="dict-class">Onomatopeia</span><div class="dict-def">Obrigado</div></div>
-        <div class="dict-card" data-cat="corps"><span class="dict-word">Zegen</span><span class="dict-class">Nome</span><div class="dict-def">O cabelo</div></div>
-      </div>
-    </section>
-
   </div>
 
 </main>
@@ -2165,7 +1940,43 @@ container.appendChild(legend);
     }
   }
 
-  document.addEventListener('DOMContentLoaded', () => { loadAudioList(); loadVideoList(); });
+  async function loadAudioListLang(containerId, legends) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    try {
+      const res = await fetch('/api/audio');
+      const files = await res.json();
+      if (!files.length) { container.innerHTML = '<p class="audio-empty">No audio files yet.</p>'; return; }
+      container.innerHTML = files.map(f => `
+        <div class="audio-entry">
+          <div class="audio-entry-header">
+            <div class="audio-info"><strong>${escapeHtml(f.name)}</strong></div>
+          </div>
+          <audio controls preload="none" src="/api/audio/file?key=${encodeURIComponent(f.key)}"></audio>
+          ${legends[f.name] ? `<p class="audio-legend">${legends[f.name]}</p>` : ''}
+        </div>
+      `).join('');
+    } catch (e) { container.innerHTML = '<p class="audio-empty">Loading error.</p>'; }
+  }
+
+  const legendsEn = {
+    'PTT-20250729-WA0015.mp3': 'An authentic Guboï morning voice greets group members and asks for news. Everyday speech in its full authenticity.',
+    'Vocal-0033.mp3': 'Children born in Kaboï sing of their misfortune. A voice that refuses to be forgotten.',
+    'Vocal-0012.mp3': "A son sings of his own mother's betrayal. In Guboï culture, song carries what direct words cannot."
+  };
+
+  const legendsPt = {
+    'PTT-20250729-WA0015.mp3': 'Uma voz guboï da manhã saúda os membros do grupo e pede notícias. A palavra quotidiana na sua autenticidade.',
+    'Vocal-0033.mp3': 'Crianças nascidas em Kaboï cantam o seu infortúnio. Uma voz que recusa o esquecimento.',
+    'Vocal-0012.mp3': 'Um filho canta a traição da sua própria mãe. Na cultura Guboï, o canto diz o que as palavras directas não podem.'
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    loadAudioList();
+    loadVideoList();
+    loadAudioListLang('audio-list-en', legendsEn);
+    loadAudioListLang('audio-list-pt', legendsPt);
+  });
 
  
 

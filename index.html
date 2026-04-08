@@ -1318,6 +1318,18 @@
 </form>
           </div>
         </div>
+        <!-- AVIS -->
+<div class="sidebar-box">
+  <div class="sidebar-title">Laissez votre avis</div>
+  <p style="font-size:0.85rem">Partagez vos impressions sur la langue Guboï ou le contenu du blog.</p>
+  <form name="avis" method="POST" data-netlify="true" style="display:flex;flex-direction:column;gap:0.7rem">
+    <input type="hidden" name="form-name" value="avis">
+    <input type="text" name="nom" placeholder="Votre nom" style="padding:0.5rem;font-family:var(--serif);border:1px solid var(--rule);background:var(--parchment)">
+    <input type="email" name="email" placeholder="Votre email (optionnel)" style="padding:0.5rem;font-family:var(--serif);border:1px solid var(--rule);background:var(--parchment)">
+    <textarea name="message" placeholder="Votre message..." rows="4" style="padding:0.5rem;font-family:var(--serif);border:1px solid var(--rule);background:var(--parchment);resize:vertical"></textarea>
+    <button type="submit" style="background:var(--accent);color:white;padding:0.5rem 1rem;border:none;cursor:pointer;font-family:var(--serif)">Envoyer</button>
+  </form>
+</div>
 
       </aside>
     </div>

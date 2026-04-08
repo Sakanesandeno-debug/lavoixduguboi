@@ -1311,9 +1311,11 @@
         <div class="sidebar-box">
           <div class="sidebar-title">Rester informé</div>
           <p style="font-size:0.85rem">Recevez les nouvelles publications, mots du jour et documents sonores.</p>
-          <div class="newsletter-form">
-            <input type="email" placeholder="votre@email.com">
-            <button>S'abonner</button>
+         <form name="newsletter" method="POST" data-netlify="true" class="newsletter-form">
+  <input type="hidden" name="form-name" value="newsletter">
+  <input type="email" name="email" placeholder="votre@email.com" required>
+  <button type="submit">S'abonner</button>
+</form>
           </div>
         </div>
 

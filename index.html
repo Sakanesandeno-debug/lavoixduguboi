@@ -1626,11 +1626,24 @@
         <div class="sidebar-box">
           <div class="sidebar-title">Newsletter</div>
           <p style="font-size:0.85rem">Receive new publications and audio documents.</p>
-          <div class="newsletter-form">
-            <input type="email" placeholder="your@email.com">
-            <button>Subscribe</button>
-          </div>
+          <form name="newsletter-en" method="POST" data-netlify="true" class="newsletter-form">
+  <input type="hidden" name="form-name" value="newsletter-en">
+  <input type="email" name="email" placeholder="your@email.com" required>
+  <button type="submit">Subscribe</button>
+</form>
         </div>
+        <!-- FEEDBACK -->
+<div class="sidebar-box">
+  <div class="sidebar-title">Leave your feedback</div>
+  <p style="font-size:0.85rem">Share your thoughts on the Guboï language or the blog content.</p>
+  <form name="feedback-en" method="POST" data-netlify="true" style="display:flex;flex-direction:column;gap:0.7rem">
+    <input type="hidden" name="form-name" value="feedback-en">
+    <input type="text" name="nom" placeholder="Your name" style="padding:0.5rem;font-family:var(--serif);border:1px solid var(--rule);background:var(--parchment)">
+    <input type="email" name="email" placeholder="Your email (optional)" style="padding:0.5rem;font-family:var(--serif);border:1px solid var(--rule);background:var(--parchment)">
+    <textarea name="message" placeholder="Your message..." rows="4" style="padding:0.5rem;font-family:var(--serif);border:1px solid var(--rule);background:var(--parchment);resize:vertical"></textarea>
+    <button type="submit" style="background:var(--accent);color:white;padding:0.5rem 1rem;border:none;cursor:pointer;font-family:var(--serif)">Send</button>
+  </form>
+</div>
       </aside>
     </div>
 
@@ -1896,11 +1909,24 @@
         <div class="sidebar-box">
           <div class="sidebar-title">Boletim</div>
           <p style="font-size:0.85rem">Receba novas publicações e documentos sonoros.</p>
-          <div class="newsletter-form">
-            <input type="email" placeholder="seu@email.com">
-            <button>Subscrever</button>
-          </div>
+          <form name="newsletter-pt" method="POST" data-netlify="true" class="newsletter-form">
+  <input type="hidden" name="form-name" value="newsletter-pt">
+  <input type="email" name="email" placeholder="seu@email.com" required>
+  <button type="submit">Subscrever</button>
+</form>
         </div>
+       <!-- COMENTÁRIOS -->
+<div class="sidebar-box">
+  <div class="sidebar-title">Deixe o seu comentário</div>
+  <p style="font-size:0.85rem">Partilhe as suas impressões sobre a língua Guboï ou o conteúdo do blog.</p>
+  <form name="comentarios-pt" method="POST" data-netlify="true" style="display:flex;flex-direction:column;gap:0.7rem">
+    <input type="hidden" name="form-name" value="comentarios-pt">
+    <input type="text" name="nom" placeholder="O seu nome" style="padding:0.5rem;font-family:var(--serif);border:1px solid var(--rule);background:var(--parchment)">
+    <input type="email" name="email" placeholder="O seu email (opcional)" style="padding:0.5rem;font-family:var(--serif);border:1px solid var(--rule);background:var(--parchment)">
+    <textarea name="message" placeholder="A sua mensagem..." rows="4" style="padding:0.5rem;font-family:var(--serif);border:1px solid var(--rule);background:var(--parchment);resize:vertical"></textarea>
+    <button type="submit" style="background:var(--accent);color:white;padding:0.5rem 1rem;border:none;cursor:pointer;font-family:var(--serif)">Enviar</button>
+  </form>
+</div> 
       </aside>
     </div>
 

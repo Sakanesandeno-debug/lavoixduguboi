@@ -1311,10 +1311,11 @@
         <div class="sidebar-box">
           <div class="sidebar-title">Rester informé</div>
           <p style="font-size:0.85rem">Recevez les nouvelles publications, mots du jour et documents sonores.</p>
-          <div class="newsletter-form">
-            <input type="email" placeholder="votre@email.com">
-            <button>S'abonner</button>
-          </div>
+          <form name="newsletter" method="POST" data-netlify="true" class="newsletter-form">
+            <input type="hidden" name="form-name" value="newsletter">
+            <input type="email" name="email" placeholder="votre@email.com" required>
+            <button type="submit">S'abonner</button>
+          </form>
         </div>
 
       </aside>
@@ -1612,10 +1613,11 @@
         <div class="sidebar-box">
           <div class="sidebar-title">Newsletter</div>
           <p style="font-size:0.85rem">Receive new publications and audio documents.</p>
-          <div class="newsletter-form">
-            <input type="email" placeholder="your@email.com">
-            <button>Subscribe</button>
-          </div>
+          <form name="newsletter-en" method="POST" data-netlify="true" class="newsletter-form">
+            <input type="hidden" name="form-name" value="newsletter-en">
+            <input type="email" name="email" placeholder="your@email.com" required>
+            <button type="submit">Subscribe</button>
+          </form>
         </div>
       </aside>
     </div>
@@ -1826,10 +1828,11 @@
         <div class="sidebar-box">
           <div class="sidebar-title">Boletim</div>
           <p style="font-size:0.85rem">Receba novas publicações e documentos sonoros.</p>
-          <div class="newsletter-form">
-            <input type="email" placeholder="seu@email.com">
-            <button>Subscrever</button>
-          </div>
+          <form name="newsletter-pt" method="POST" data-netlify="true" class="newsletter-form">
+            <input type="hidden" name="form-name" value="newsletter-pt">
+            <input type="email" name="email" placeholder="seu@email.com" required>
+            <button type="submit">Subscrever</button>
+          </form>
         </div>
       </aside>
     </div>
@@ -2279,11 +2282,6 @@ container.appendChild(legend);
 </script>
 
 <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
-<script type='text/javascript'>
-  window.addEventListener('load', function() {
-    kofiwidget2.init('Support me on Ko-fi', '#72a4f2', 'Q5Q51XLWSS');
-    kofiwidget2.draw();
-  });
-</script>
+<script type='text/javascript'>kofiwidget2.init('Support me on Ko-fi', '#72a4f2', 'Q5Q51XLWSS');kofiwidget2.draw();</script>
 </body>
 </html>
